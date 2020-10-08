@@ -1,0 +1,11 @@
+#welcome{
+    height:100px;
+    background:transparent;
+    width:90vw;
+    margin:auto;
+    margin-bottom:50px;
+    padding:20px;
+    color:white;
+    text-align:center;
+    font-size:3.2rem;
+}

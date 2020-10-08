@@ -1,0 +1,45 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Miriam+Libre&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;1,300&display=swap');
+
+body {
+  margin: 0;
+  /* font-family: 'Inter', sans-serif; 
+  font-family: 'Miriam Libre', sans-serif;*/
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight:bold;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor:default;
+}
+
+.vanta-canvas {
+  width:100% !important;
+  position: fixed !important;
+}
+
+#bg{
+  /*height and width are important*/
+  width:100%;
+  height:100vh; 
+}
+
+#titleandlogo{
+  top:25px;
+  left:25px;
+  margin-bottom:75px;
+  display:flex;
+  width:fit-content;
+  align-items: center;
+}
+
+#titleandlogo #title{
+  color:white;
+  font-size:1rem;
+  letter-spacing: .5rem;
+}
+
+#titleandlogo #logo{
+  height:40px;
+  margin-right:10px;
+}
