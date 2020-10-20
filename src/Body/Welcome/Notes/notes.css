@@ -1,0 +1,79 @@
+#notes{
+    background-color:#212121;
+    padding:10px 15px;
+    color:white;
+    margin-bottom:50px;
+    border-radius:8px;
+}
+
+.note{
+    background-color:#424242;
+    padding:10px;
+    margin:10px 5px;
+    border-radius:8px;
+}
+
+.note .note-title{
+    padding:8px;
+    width:100%;
+    max-height:4rem;
+    font-size:1.2rem;
+    box-sizing:border-box;
+    outline:none;
+    resize: none;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size:1.2rem;
+    color:#17A589;
+    border:none;
+    background-color:#424242;
+}
+
+.note .note-title:focus{
+    background-color:#212121;
+}
+
+.note .note-body{
+    display:block;
+    margin:auto;
+    width:100%;
+    padding:8px;
+    box-sizing:border-box;
+}
+
+.note .note-body .note-textarea{
+    padding:8px;
+    width:100%;
+    background-color:#212121;
+    border:none;
+    max-height:7rem;
+    box-sizing:border-box;
+    outline:none;
+    resize: none;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size:1rem;
+    color:white;
+}
+
+.note .save-button{
+    background-color:#17A589;
+    padding:8px;
+    cursor:pointer;
+    width:fit-content;
+    color:white;
+    margin:auto;
+    margin-right:8px;
+    margin-bottom:5px;
+}
+
+#notes #create-new-note{
+    padding:10px;
+    background-color:#17A589;
+    width:95%;
+    margin:10px auto;
+    border-radius: 8px;
+    cursor:pointer;
+    text-align:center;
+    color:white;
+}
+
+

@@ -1,11 +1,22 @@
-#welcome{
-    height:100px;
-    background:transparent;
-    width:90vw;
+#content{
+    width:85vw;
+    margin:auto;
+}
+
+#content #welcome{
+    height:fit-content;
+    width:fit-content;
     margin:auto;
     margin-bottom:50px;
-    padding:20px;
+    border:2px solid white;
+    padding:25px;
     color:white;
     text-align:center;
-    font-size:3.2rem;
+    font-size:2.8rem;
+}
+
+#content #widget-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-gap:1rem;
 }
