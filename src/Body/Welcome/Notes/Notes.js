@@ -8,15 +8,18 @@ export default class Notes extends PureComponent {
     this.state = {
       notes: [],
       isLoading: true,
-      newnotetitle:"Post title", 
-      newnotebody:"Post body"
+      newnotetitle:"", 
+      newnotebody:"",
+      showcreatenewnotebox: false
     };
   }
+
+  //https://armamentum.herokuapp.com/notes is the link for the hosted nodejs server
 
   componentDidMount() {
     //autosize(this.notebody);
 
-    fetch("http://localhost:5000/notes")
+    fetch("https://armamentum.herokuapp.com/notes")
       .then((res) => res.json())
       .then((res) => {
         //console.log(res);
@@ -42,7 +45,8 @@ export default class Notes extends PureComponent {
       body: this.state.newnotebody
     }
 
-    fetch("http://localhost:5000/notes/postnote", {
+
+    fetch("https://armamentum.herokuapp.com/notes/postnote", {
       method: "POST",
       headers:{'Content-type': 'application/json'},
       body: JSON.stringify(data),
@@ -50,12 +54,20 @@ export default class Notes extends PureComponent {
       .then((res) => res.json())
       .then(() => {
 
-        fetch("http://localhost:5000/notes")
+        fetch("https://armamentum.herokuapp.com/notes")
           .then((res) => res.json())
           .then((res) => {
-            this.setState({ notes: res, isLoading: false });
+            this.setState({ notes: res, isLoading: false, newnotetitle:"", newnotebody:"",showcreatenewnotebox: false });
           });
       });
+  }
+
+  openbox = () => {
+    this.setState({showcreatenewnotebox: !this.state.showcreatenewnotebox});
+  }
+
+  createnoteinputHandler = (e) => {
+    this.setState({[e.target.name]: e.target.value})
   }
 
   updateHandler = (id, index) => {
@@ -65,7 +77,7 @@ export default class Notes extends PureComponent {
         body: this.state.notes[index][0]
     }
 
-    fetch("http://localhost:5000/notes/updatenote/" + id, {
+    fetch("https://armamentum.herokuapp.com/notes/updatenote/" + id, {
       method: "PUT",
       headers:{'Content-type': 'application/json'},
       body: JSON.stringify(newbody),
@@ -79,8 +91,32 @@ export default class Notes extends PureComponent {
   render() {
     return (
       <div id="notes">
+        <div id="create-new-note" onClick={() => this.openbox()}>Create a new note</div> 
+        {this.state.showcreatenewnotebox && 
+        <div id="create-new-note-box">
+          <textarea
+                    className="note-title"
+                    name={"newnotetitle"}
+                    onChange={(e) => this.createnoteinputHandler(e)}
+                    placeholder={"Note title"}
+                    value={this.state.newnotetitle}
+                    rows={1}
+          ></textarea>
+          <div className="note-body">
+          <textarea
+                    className="note-textarea"
+                    name={"newnotebody"}
+                    onChange={(e) => this.createnoteinputHandler(e)}
+                    placeholder={"Note body"}
+                    value={this.state.newnotebody}
+                    rows={1}
+          ></textarea>
+          </div>
+          <div id="create-note-button" onClick={() => this.createHandler()}>Create</div>
+        </div>
+        }
         {this.state.isLoading === true
-          ? "Loading notes..."
+          ? <div id="loading">Loading notes...</div>
           : 
           this.state.notes.map((note, index) => {
               return (
@@ -112,7 +148,6 @@ export default class Notes extends PureComponent {
                 </div>
               );
             })}
-      <div id="create-new-note" onClick={() => this.createHandler()}>Create a new note</div> 
       </div>
     );
   }

@@ -1,19 +1,26 @@
 #notes{
-    background-color:#212121;
+    background-color:#658a99;
     padding:10px 15px;
-    color:white;
     margin-bottom:50px;
     border-radius:8px;
+    color:white;
+}
+
+#notes #loading{
+    padding:10px;
+    display:flex;
+    align-items:center;
+    justify-content: center;
 }
 
 .note{
-    background-color:#424242;
+    background-color:#e6edf0;
     padding:10px;
     margin:10px 5px;
     border-radius:8px;
 }
 
-.note .note-title{
+.note-title{
     padding:8px;
     width:100%;
     max-height:4rem;
@@ -23,16 +30,17 @@
     resize: none;
     font-family: 'IBM Plex Sans', sans-serif;
     font-size:1.2rem;
-    color:#17A589;
+    color:#658a99;
     border:none;
-    background-color:#424242;
+    background-color:#e6edf0;
+    font-weight: bold;
 }
 
-.note .note-title:focus{
-    background-color:#212121;
-}
+/* .note .note-title:focus{
+    background-color:white;
+} */
 
-.note .note-body{
+.note-body{
     display:block;
     margin:auto;
     width:100%;
@@ -40,10 +48,10 @@
     box-sizing:border-box;
 }
 
-.note .note-body .note-textarea{
+.note-textarea{
     padding:8px;
     width:100%;
-    background-color:#212121;
+    background-color:white;
     border:none;
     max-height:7rem;
     box-sizing:border-box;
@@ -51,15 +59,14 @@
     resize: none;
     font-family: 'IBM Plex Sans', sans-serif;
     font-size:1rem;
-    color:white;
 }
 
-.note .save-button{
-    background-color:#17A589;
+.note .save-button, #create-note-button{
+    background-color:#658a99;
     padding:8px;
+    color:#f0ebf4;
     cursor:pointer;
     width:fit-content;
-    color:white;
     margin:auto;
     margin-right:8px;
     margin-bottom:5px;
@@ -67,7 +74,8 @@
 
 #notes #create-new-note{
     padding:10px;
-    background-color:#17A589;
+    background-color:#4e7686;
+    border:2px solid white;
     width:95%;
     margin:10px auto;
     border-radius: 8px;
@@ -76,4 +84,17 @@
     color:white;
 }
 
+#notes #create-new-note-box{
+    background-color:#bed3db;
+    padding:10px;
+    margin:10px 5px;
+    border-radius:8px;
+}
 
+#create-new-note-box .note-title{
+    background-color:#bed3db;
+}
+
+#create-new-note-box .note-title::placeholder{
+    color:white;
+}
