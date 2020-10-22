@@ -61,15 +61,29 @@
     font-size:1rem;
 }
 
-.note .save-button, #create-note-button{
+.buttons{
+    display:flex;
+    justify-content:flex-end;
+    box-sizing: border-box;
+    margin:auto;
+}
+
+.note .buttons .save-button, #create-note-button, .note .buttons .delete-button{
     background-color:#658a99;
     padding:8px;
     color:#f0ebf4;
     cursor:pointer;
     width:fit-content;
-    margin:auto;
+    display:flex;
+    align-items:center;
     margin-right:8px;
     margin-bottom:5px;
+}
+
+.note .buttons .delete-button{
+    background:transparent;
+    border:2px solid #4e7686;
+    color:#4e7686;
 }
 
 #notes #create-new-note{

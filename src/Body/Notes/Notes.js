@@ -82,11 +82,27 @@ export default class Notes extends PureComponent {
       headers:{'Content-type': 'application/json'},
       body: JSON.stringify(newbody),
     })
-      .then((res) => {
+      .then(() => {
         //console.log(res);
         alert("Updated note!");
       });
   };
+
+  deleteHandler = (id) => {
+
+    fetch("https://armamentum.herokuapp.com/notes/deletenote/" + id, {
+        method: "DELETE"
+    })
+    .then(() => {
+
+      fetch("https://armamentum.herokuapp.com/notes")
+          .then((res) => res.json())
+          .then((res) => {
+            this.setState({ notes: res, isLoading: false, showcreatenewnotebox: false });
+          });
+
+    })
+  }
 
   render() {
     return (
@@ -112,7 +128,9 @@ export default class Notes extends PureComponent {
                     rows={1}
           ></textarea>
           </div>
+          <div className="buttons">
           <div id="create-note-button" onClick={() => this.createHandler()}>Create</div>
+          </div>
         </div>
         }
         {this.state.isLoading === true
@@ -137,6 +155,8 @@ export default class Notes extends PureComponent {
                       rows={1}
                     ></textarea>
                   </div>
+                  <div className="buttons">
+                  <div className="delete-button" onClick={() => this.deleteHandler(note[2]["@ref"].id)}>Delete</div>
                   <div
                     className="save-button"
                     onClick={() =>
@@ -144,6 +164,7 @@ export default class Notes extends PureComponent {
                     }
                   >
                     Save
+                  </div>
                   </div>
                 </div>
               );

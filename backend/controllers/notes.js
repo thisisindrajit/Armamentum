@@ -10,19 +10,12 @@ const client = new faunadb.Client({ secret: 'fnAD4bFmIKACBXcqwnPaRn677HNGOhn_QDa
 const {
     Ref,
     Paginate,
-    Get,
-    Lambda,
     Match,
-    Var,
-    Map,
-    Select,
     Update,
     Index,
+    Delete,
     Create,
-    Collection,
-    Join,
-    Call,
-    Function: Fn,
+    Collection
 } = faunadb.query;
 
 router.get("/", async (req, res) => {
@@ -61,10 +54,17 @@ router.put("/updatenote/:id", async (req,res) => {
 router.post("/postnote", async (req, res) => {
 
     await client.query(Create(Collection("Notes"), {data: req.body}))
-        .then(data => {
-            res.status(200).json(data);
+        .then(doc => {
+            res.status(200).json(doc);
         })
         .catch(err => res.status(400).json({error:err}))
+})
+
+router.delete("/deletenote/:id", async (req, res) => {
+
+    await client.query(Delete(Ref(Collection("Notes"), req.params.id)))
+        .then(doc => res.status(200).json(doc))
+        .catch(err => res.status(404).json({error: err})) 
 })
 
 module.exports = router;

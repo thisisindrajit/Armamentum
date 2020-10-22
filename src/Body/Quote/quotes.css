@@ -1,0 +1,28 @@
+#quote{
+    margin:50px auto;
+    width:100%;
+    padding:10px;
+    box-sizing: border-box;
+    text-align:center;
+    color:white;
+}
+
+#quote #content{
+    width:90%;
+    line-height:2rem;
+    font-style:italic;
+    font-size:1.2rem;
+    display:block;
+}
+
+#quote #line{
+    width:150px;
+    height:1px;
+    margin:20px auto;
+    background-color:white;
+}
+
+#quote #author{
+    display:block;
+    margin-top:5px;
+}
