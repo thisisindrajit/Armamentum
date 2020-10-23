@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Armamentum/static/css/main.6628449a.chunk.css",
+    "main.js": "/Armamentum/static/js/main.9b9fdbc6.chunk.js",
+    "main.js.map": "/Armamentum/static/js/main.9b9fdbc6.chunk.js.map",
+    "runtime-main.js": "/Armamentum/static/js/runtime-main.bcaa7ecd.js",
+    "runtime-main.js.map": "/Armamentum/static/js/runtime-main.bcaa7ecd.js.map",
+    "static/js/2.341521ec.chunk.js": "/Armamentum/static/js/2.341521ec.chunk.js",
+    "static/js/2.341521ec.chunk.js.map": "/Armamentum/static/js/2.341521ec.chunk.js.map",
+    "index.html": "/Armamentum/index.html",
+    "precache-manifest.1ca557c84c098a19ca46f820fb50ad22.js": "/Armamentum/precache-manifest.1ca557c84c098a19ca46f820fb50ad22.js",
+    "service-worker.js": "/Armamentum/service-worker.js",
+    "static/css/main.6628449a.chunk.css.map": "/Armamentum/static/css/main.6628449a.chunk.css.map",
+    "static/js/2.341521ec.chunk.js.LICENSE.txt": "/Armamentum/static/js/2.341521ec.chunk.js.LICENSE.txt",
+    "static/media/logo.png": "/Armamentum/static/media/logo.0d338a54.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bcaa7ecd.js",
+    "static/js/2.341521ec.chunk.js",
+    "static/css/main.6628449a.chunk.css",
+    "static/js/main.9b9fdbc6.chunk.js"
+  ]
+}
