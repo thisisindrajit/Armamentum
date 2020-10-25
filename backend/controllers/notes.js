@@ -21,7 +21,7 @@ const {
 router.get("/", async (req, res) => {
 
     await client.query(
-        Paginate(Match(Index("get_notes"))) //here the results from Match are mapped to the lambda function to get the original data
+        Paginate(Match(Index("Notes_sorted"))) //here the results from Match are mapped to the lambda function to get the original data
     )
 
     .then(doc => {

@@ -1,11 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 import "./layout.css";
 // import TOPOLOGY from "vanta/dist/vanta.topology.min";
 import Welcome from "./Body/Welcome/Welcome";
 import logo from "./logo.png";
 
 //Have uninstalled Vanta package since it took a lot of processing to render the background, making the website slow
-class Layout extends React.Component {
+class Layout extends Component {
   constructor() {
     super();
     this.state = {

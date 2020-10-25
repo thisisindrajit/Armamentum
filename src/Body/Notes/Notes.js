@@ -73,8 +73,8 @@ export default class Notes extends PureComponent {
   updateHandler = (id, index) => {
 
     const newbody = {
-        title: this.state.notes[index][1],
-        body: this.state.notes[index][0]
+        title: this.state.notes[index][2],
+        body: this.state.notes[index][1]
     }
 
     fetch("https://armamentum.herokuapp.com/notes/updatenote/" + id, {
@@ -105,6 +105,7 @@ export default class Notes extends PureComponent {
   }
 
   render() {
+
     return (
       <div id="notes">
         <div id="create-new-note" onClick={() => this.openbox()}>Create a new note</div> 
@@ -138,29 +139,29 @@ export default class Notes extends PureComponent {
           : 
           this.state.notes.map((note, index) => {
               return (
-                <div className="note" key={note[2]["@ref"].id}>
+                <div className="note" key={note[3]["@ref"].id}>
                   <textarea
                     className="note-title"
                     name={"title"}
-                    onChange={(e) => this.inputHandler(e, index, 1)}
-                    defaultValue={note[1]}
+                    onChange={(e) => this.inputHandler(e, index, 2)}
+                    defaultValue={note[2]}
                     rows={1}
                   ></textarea>
                   <div className="note-body">
                     <textarea
                       className="note-textarea"
                       name={"body"}
-                      onChange={(e) => this.inputHandler(e, index, 0)}
-                      defaultValue={note[0]}
+                      onChange={(e) => this.inputHandler(e, index, 1)}
+                      defaultValue={note[1]}
                       rows={1}
                     ></textarea>
                   </div>
                   <div className="buttons">
-                  <div className="delete-button" onClick={() => this.deleteHandler(note[2]["@ref"].id)}>Delete</div>
+                  <div className="delete-button" onClick={() => this.deleteHandler(note[3]["@ref"].id)}>Delete</div>
                   <div
                     className="save-button"
                     onClick={() =>
-                      this.updateHandler(note[2]["@ref"].id, index)
+                      this.updateHandler(note[3]["@ref"].id, index)
                     }
                   >
                     Save

@@ -1,7 +1,7 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import './quotes.css';
 
-export default class Quote extends PureComponent
+export default class Quote extends Component
 {
     constructor(props)
     {

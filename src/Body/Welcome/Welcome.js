@@ -1,9 +1,9 @@
-import React,{PureComponent} from 'react';
+import React,{ Component } from 'react';
 import './welcome.css';
 import Notes from '../Notes/Notes';
 import Quote from '../Quote/Quote';
 
-export default class Welcome extends PureComponent
+export default class Welcome extends Component
 {
     render() {
 
