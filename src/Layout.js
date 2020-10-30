@@ -3,6 +3,9 @@ import "./layout.css";
 // import TOPOLOGY from "vanta/dist/vanta.topology.min";
 import Welcome from "./Body/Welcome/Welcome";
 import logo from "./logo.png";
+import Notes from './Body/Notes/Notes';
+import Quote from './Body/Quote/Quote';
+import Weather from './Body/Weather/Weather';
 
 //Have uninstalled Vanta package since it took a lot of processing to render the background, making the website slow
 class Layout extends Component {
@@ -56,7 +59,15 @@ class Layout extends Component {
         </div>
 
         {/*body*/}
+        <div id="body">
         <Welcome />
+        <Quote />
+        <div id="widget-grid">
+            <Weather />
+            <Notes />
+        </div>
+        </div>
+
       </div>
     );
   }
