@@ -4,6 +4,7 @@
     margin-bottom:50px;
     border-radius:8px;
     color:white;
+    height:fit-content;
 }
 
 #notes #loading{
@@ -87,15 +88,16 @@
 }
 
 #notes #create-new-note{
+    width:98.5%;
     padding:10px;
-    background-color:#4e7686;
-    border:2px solid white;
-    width:95%;
     margin:10px auto;
+    border:2px solid white;
     border-radius: 8px;
     cursor:pointer;
     text-align:center;
     color:white;
+    box-sizing:border-box; 
+    background-color:#4e7686;
 }
 
 #notes #create-new-note-box{

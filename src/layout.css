@@ -69,3 +69,10 @@ body {
   grid-template-columns:1fr 1fr;
   grid-gap:1rem;
 }
+
+#body #left-1{
+  height:fit-content;
+  display:flex;
+  flex-direction: column;
+  margin-bottom:50px;
+}

@@ -1,0 +1,25 @@
+#pictures-box{
+    overflow:auto;
+    padding:20px;
+    border-radius:8px;
+    background-color:white;
+    margin-top:1rem;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content:center;
+}
+
+#pictures-box #title{
+    margin:auto;
+    margin-left:0px;
+    font-size:1rem;
+    margin-bottom:30px;
+}
+
+#pictures-box .img-holder{
+    width:500px;
+    margin:5px auto;
+    height:275px;
+    object-fit:cover;
+}
