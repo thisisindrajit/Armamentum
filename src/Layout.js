@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import "./layout.css";
 // import TOPOLOGY from "vanta/dist/vanta.topology.min";
 import Welcome from "./Body/Welcome/Welcome";
@@ -9,7 +9,7 @@ import Weather from './Body/Weather/Weather';
 import Pictures from './Body/Pictures/Pictures';
 
 //Have uninstalled Vanta package since it took a lot of processing to render the background, making the website slow
-class Layout extends Component {
+class Layout extends PureComponent {
   constructor() {
     super();
     this.state = {
