@@ -23,7 +23,7 @@ export default class Picture extends PureComponent
 
         this.state.picgeneratorlinks.map((val, index) => promisesarray[index] = fetch(val))
 
-        console.log(promisesarray);
+        /*console.log(promisesarray);*/
 
         Promise.all(promisesarray)
             .then(data => {

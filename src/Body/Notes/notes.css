@@ -1,9 +1,9 @@
 #notes{
-    background-color:#658a99;
+    /* background-color:#658a99; */
+    background-color:white;
     padding:10px 15px;
-    margin-bottom:50px;
     border-radius:8px;
-    color:white;
+    color:black;
     height:fit-content;
 }
 
@@ -72,7 +72,7 @@
 .note .buttons .save-button, #create-note-button, .note .buttons .delete-button{
     background-color:#658a99;
     padding:8px;
-    color:#f0ebf4;
+    color:white;
     cursor:pointer;
     width:fit-content;
     display:flex;
@@ -89,9 +89,9 @@
 
 #notes #create-new-note{
     width:98.5%;
-    padding:10px;
+    padding:12px;
     margin:10px auto;
-    border:2px solid white;
+    /* border:2px solid white; */
     border-radius: 8px;
     cursor:pointer;
     text-align:center;
