@@ -7,6 +7,7 @@ import Notes from './Body/Notes/Notes';
 import Quote from './Body/Quote/Quote';
 import Weather from './Body/Weather/Weather';
 import Pictures from './Body/Pictures/Pictures';
+import Dictionary from "./Body/Dictionary/Dictionary";
 
 //Have uninstalled Vanta package since it took a lot of processing to render the background, making the website slow
 class Layout extends PureComponent {
@@ -67,9 +68,12 @@ class Layout extends PureComponent {
             <div id="left-1">
             <Weather />
             <Pictures />
+            <Dictionary />
             </div>
+            <div id="right-1">
             <Notes />
-            
+           
+            </div>
         </div>
         </div>
 

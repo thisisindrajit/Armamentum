@@ -8,9 +8,11 @@ export default class Notes extends PureComponent {
     this.state = {
       notes: [],
       isLoading: true,
+      isUpdating:false,
       newnotetitle:"", 
       newnotebody:"",
-      showcreatenewnotebox: false
+      showcreatenewnotebox: false,
+      updateStatus:[]
     };
   }
 
@@ -57,7 +59,15 @@ export default class Notes extends PureComponent {
         fetch("https://armamentum.herokuapp.com/notes")
           .then((res) => res.json())
           .then((res) => {
-            this.setState({ notes: res, isLoading: false, newnotetitle:"", newnotebody:"",showcreatenewnotebox: false });
+
+            let updateStatus = [];
+
+            //updateStatus for each note fetched from API
+            res.forEach((val,index) => {
+              updateStatus[index] = "";
+            })
+
+            this.setState({ notes: res, isLoading: false, newnotetitle:"", newnotebody:"",showcreatenewnotebox: false, updateStatus: updateStatus });
           });
       });
   }
@@ -72,6 +82,12 @@ export default class Notes extends PureComponent {
 
   updateHandler = (id, index) => {
 
+    let updateStatus = this.state.updateStatus;
+    updateStatus[index] = "Updating..."; 
+
+
+    this.setState({isUpdating: true, updateStatus: updateStatus});
+
     const newbody = {
         title: this.state.notes[index][2],
         body: this.state.notes[index][1]
@@ -84,7 +100,9 @@ export default class Notes extends PureComponent {
     })
       .then(() => {
         //console.log(res);
-        alert("Updated note!");
+        updateStatus[index] = "Updated!"; 
+        this.setState({isUpdating:false, updateStatus: updateStatus});
+        //alert("Updated note!");
       });
   };
 
@@ -157,6 +175,7 @@ export default class Notes extends PureComponent {
                     ></textarea>
                   </div>
                   <div className="buttons">
+                  <div className="update-status">{this.state.updateStatus[index]}</div>
                   <div className="delete-button" onClick={() => this.deleteHandler(note[3]["@ref"].id)}>Delete</div>
                   <div
                     className="save-button"

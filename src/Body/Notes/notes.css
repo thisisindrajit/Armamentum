@@ -19,6 +19,7 @@
     padding:10px;
     margin:10px 5px;
     border-radius:8px;
+    padding-bottom:15px;
 }
 
 .note-title{
@@ -65,8 +66,18 @@
 .buttons{
     display:flex;
     justify-content:flex-end;
+    align-items:center;
     box-sizing: border-box;
     margin:auto;
+}
+
+.note .buttons .update-status{
+    margin:auto;
+    margin-left:8px;
+    font-size:0.9rem;
+    padding:8px 0;
+    width:fit-content;
+    display:flex;
 }
 
 .note .buttons .save-button, #create-note-button, .note .buttons .delete-button{
@@ -78,7 +89,7 @@
     display:flex;
     align-items:center;
     margin-right:8px;
-    margin-bottom:5px;
+    border:2px solid #658a99;
 }
 
 .note .buttons .delete-button{

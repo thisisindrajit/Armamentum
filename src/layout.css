@@ -61,6 +61,7 @@ body {
 #body{
   width:85vw;
   margin:auto;
+  margin-bottom:50px;
 }
 
 
@@ -70,9 +71,8 @@ body {
   grid-gap:1rem;
 }
 
-#body #left-1{
+#body #left-1,#body #right-1{
   height:fit-content;
   display:flex;
   flex-direction: column;
-  margin-bottom:50px;
 }
