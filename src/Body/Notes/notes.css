@@ -7,9 +7,11 @@
     height:fit-content;
 }
 
-#notes #loading{
-    padding:10px;
+#loading{
+    padding:15px;
+    background-color:white;
     display:flex;
+    border-radius:8px;
     align-items:center;
     justify-content: center;
 }

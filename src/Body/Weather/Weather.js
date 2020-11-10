@@ -69,7 +69,7 @@ export default class Weather extends PureComponent {
       </div>
     ) : (
       <div id="weather">
-        <span>{this.state.isLoading === true && this.state.enableLocation === true ? "Loading..." : this.state.enableLocation === false ? "Please provide location access!" : "Error! API rate limit exceeded!"}</span>
+        <span>{this.state.isLoading === true && this.state.enableLocation === true ? "Loading..." : this.state.enableLocation === false ? "Please provide location access!" : "Sorry! Some error occurred! Please try again!"}</span>
       </div>
     );
   }

@@ -1,0 +1,17 @@
+#fact-box{
+    margin-bottom:1rem;
+    padding:20px;
+    background-color:white;
+    border-radius:8px;
+    color:#4e7686;
+    font-size:1.1rem;
+}
+
+#fact{
+    display:block;
+    margin-top:15px;
+    color:black;
+    background-color:white;
+    font-size:1rem;
+    border-radius:8px;
+}
