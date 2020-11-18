@@ -7,7 +7,11 @@ import Loading from './Loading';
 
 const Login = (props) => {
 
+    console.log("inside login!");
+
     const { isLoading, isAuthenticated } = useAuth0();
+
+    console.log(isLoading, isAuthenticated);
 
     if (isLoading) {
         return <Loading />
