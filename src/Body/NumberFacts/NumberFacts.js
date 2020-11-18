@@ -11,9 +11,7 @@ export default class NumberFacts extends PureComponent {
   }
 
   componentDidMount() {
-    fetch("http://numbersapi.com/random/trivia?json", {
-      method: "GET",
-    })
+    fetch("https://armamentum.herokuapp.com/fact")
       .then((response) => response.json())
       .then((data) => {
         //console.log(data);

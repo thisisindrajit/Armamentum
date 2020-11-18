@@ -1,0 +1,48 @@
+body{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:100vh;
+}
+
+#loading-box{
+  width:100vw;
+  height:100vh;
+  background-color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+#login-box {
+  padding: 25px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  width:30vw;
+}
+
+#login-box #logo{
+    height:120px;
+    width:120px;
+}
+
+#login-box #login-button{
+        border-radius:8px;
+        background-color:#658a99;
+        padding:10px;
+        font-family: 'IBM Plex Sans', sans-serif;
+        font-size:1rem;
+        font-weight: bold;
+        color:white;
+        cursor:pointer;
+        width:fit-content;
+        display:flex;
+        border:none;
+        align-items:center;
+        margin-top:25px;
+}

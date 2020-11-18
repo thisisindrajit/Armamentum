@@ -123,7 +123,11 @@ export default class Notes extends PureComponent {
   };
 
   render() {
-    return this.state.isLoading === true ? (
+
+    console.log(this.props.name);
+
+    //for now I have hardcoded the name. Must change it later!
+    return this.state.isLoading === true && this.props.name === "Indrajit Vijayakumar" ? (
       <div id="loading">Loading notes...</div>
     ) : (
       <div id="notes">

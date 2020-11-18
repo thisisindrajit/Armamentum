@@ -18,13 +18,10 @@ export default class Weather extends PureComponent {
   
   async componentDidMount() {
    
-    let apikey = "wnyk8nvno3fgvSgIuM8Y9h490KONwYyW";
-
     if (navigator.geolocation) {
       await navigator.geolocation.getCurrentPosition((position) => {
       this.setState({url:
-      "https://api.climacell.co/v3/weather/realtime?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&unit_system=si&fields=temp&apikey=" +
-      apikey, enableLocation:true});
+      "https://api.climacell.co/v3/weather/realtime?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&unit_system=si&fields=temp&apikey=" + process.env.REACT_APP_WEATHER_API_KEY, enableLocation:true});
       });
     }
   }
