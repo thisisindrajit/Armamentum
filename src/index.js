@@ -6,8 +6,8 @@ import Routes from "./Routes";
 
 ReactDOM.render(
   <Auth0Provider
-    domain={process.env.REACT_APP_AUTH0_DOMAIN}
-    clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
+    domain="dev-crg4pmj4.us.auth0.com"
+    clientId="KPXUmwO2B80UKf3AQIJqcUvCFrZ0pomS"
     redirectUri={window.location.origin}
   >
     <BrowserRouter>
