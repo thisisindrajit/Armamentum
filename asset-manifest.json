@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Armamentum/static/css/main.c5d76e28.chunk.css",
-    "main.js": "/Armamentum/static/js/main.4a9e8b56.chunk.js",
-    "main.js.map": "/Armamentum/static/js/main.4a9e8b56.chunk.js.map",
+    "main.js": "/Armamentum/static/js/main.d919fcb9.chunk.js",
+    "main.js.map": "/Armamentum/static/js/main.d919fcb9.chunk.js.map",
     "runtime-main.js": "/Armamentum/static/js/runtime-main.bcaa7ecd.js",
     "runtime-main.js.map": "/Armamentum/static/js/runtime-main.bcaa7ecd.js.map",
     "static/js/2.4a6a2db7.chunk.js": "/Armamentum/static/js/2.4a6a2db7.chunk.js",
     "static/js/2.4a6a2db7.chunk.js.map": "/Armamentum/static/js/2.4a6a2db7.chunk.js.map",
     "index.html": "/Armamentum/index.html",
-    "precache-manifest.983b97e6438ff4f7b8cd37ea02edea56.js": "/Armamentum/precache-manifest.983b97e6438ff4f7b8cd37ea02edea56.js",
+    "precache-manifest.29f5238718323f49f27e9df850934f48.js": "/Armamentum/precache-manifest.29f5238718323f49f27e9df850934f48.js",
     "service-worker.js": "/Armamentum/service-worker.js",
     "static/css/main.c5d76e28.chunk.css.map": "/Armamentum/static/css/main.c5d76e28.chunk.css.map",
     "static/js/2.4a6a2db7.chunk.js.LICENSE.txt": "/Armamentum/static/js/2.4a6a2db7.chunk.js.LICENSE.txt",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.bcaa7ecd.js",
     "static/js/2.4a6a2db7.chunk.js",
     "static/css/main.c5d76e28.chunk.css",
-    "static/js/main.4a9e8b56.chunk.js"
+    "static/js/main.d919fcb9.chunk.js"
   ]
 }
