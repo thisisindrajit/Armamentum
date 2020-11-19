@@ -1,7 +1,7 @@
 // import React, { PureComponent } from "react";
+// import TOPOLOGY from "vanta/dist/vanta.topology.min";
 import React, { useState, useEffect } from "react";
 import "./layout.css";
-// import TOPOLOGY from "vanta/dist/vanta.topology.min";
 import Welcome from "./Body/Welcome/Welcome";
 import logo from "./logo.png";
 import Notes from "./Body/Notes/Notes";
@@ -10,6 +10,8 @@ import Weather from "./Body/Weather/Weather";
 import Pictures from "./Body/Pictures/Pictures";
 import Dictionary from "./Body/Dictionary/Dictionary";
 import NumberFacts from "./Body/NumberFacts/NumberFacts";
+import QuickLinks from "./Body/QuickLinks/QuickLinks";
+import Logout from "./Body/Login/Logout";
 import { useAuth0 } from "@auth0/auth0-react";
 
 //Have uninstalled Vanta package since it took a lot of processing to render the background, making the website slow
@@ -90,50 +92,97 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const Layout = (props) => {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
+  const [optionsboxopen, setoptionsboxopen] = useState(false);
+
+  //setting wallpaper type for the first time
+  if (!localStorage.hasOwnProperty("bg-type")) {
+    localStorage.setItem("bg-type", "wallpaper");
+  }
+
+  const [wallpapertype, setwallpapertype] = useState(localStorage.getItem("bg-type"));
+
+  if (wallpapertype === "wallpaper") {
+    document.body.style.backgroundImage =
+      'linear-gradient(to top, rgba(23, 32, 42, 0.20), rgba(0, 0, 0, 0.80)), url("https://picsum.photos/1920/1080?random=6")';
+  } else {
+    document.body.style.backgroundImage = "none";
+    document.body.style.backgroundColor = "#050505";
+  }
 
   const tick = () => {
     setTime(new Date().toLocaleTimeString());
+  };
+
+  const toggleoptionsbox = () => {
+    setoptionsboxopen(!optionsboxopen);
+  };
+
+  const togglewallpaper = () => {
+    if (wallpapertype === "wallpaper") {
+      localStorage.setItem("bg-type", "none");
+      setwallpapertype("none");
+    } else {
+      localStorage.setItem("bg-type", "wallpaper");
+      setwallpapertype("wallpaper");
+    }
   };
 
   useEffect(() => {
     setInterval(tick, 1000);
   });
 
-  const { user,isAuthenticated } = useAuth0();
+  const { user } = useAuth0();
 
-  if (!isAuthenticated) {
-    props.history.push("/");
-  }
+  // console.log(user);
 
   return (
-      <div id="bg">
-        {/* logo and title */}
-        <div id="titleandlogo">
-          <img src={logo} alt="logo" id="logo"></img>
-          <span id="title">ARMAMENTUM</span>
-          <div id="time">
-            <h2>{time}</h2>
-          </div>
+    <div id="bg">
+      {/* logo and title */}
+      <div id="titleandlogo">
+        <img src={logo} alt="logo" id="logo"></img>
+        <span id="title">ARMAMENTUM</span>
+        <div id="time">
+          <h2>{time}</h2>
         </div>
-
-        {/*body*/}
-        <div id="body">
-          <Welcome />
-          <Quote />
-          <div id="widget-grid">
-            <div id="left-1">
-              <Weather />
-              <Dictionary />
-              <Pictures />
+        <div id="options-box">
+          <img
+            src={user.picture}
+            alt="profile_picture"
+            onClick={toggleoptionsbox}
+          ></img>
+          {optionsboxopen && (
+            <div id="options-list">
+              <div onClick={togglewallpaper}>
+                {wallpapertype === "wallpaper"
+                  ? "No Wallpaper"
+                  : "Random Wallpaper"}
+              </div>
+              <div>
+                <Logout />
+              </div>
             </div>
-            <div id="right-1">
-              <NumberFacts />
-              <Notes name={user.name}/>
-            </div>
-          </div>
+          )}
         </div>
-
       </div>
+
+      {/*body*/}
+      <div id="body">
+        <Welcome />
+        <Quote />
+        <div id="widget-grid">
+          <div id="left-1">
+            <Weather />
+            <QuickLinks />
+            <Dictionary />
+            <Pictures />
+          </div>
+          <div id="right-1">
+            <NumberFacts />
+            <Notes user={user} />
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

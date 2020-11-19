@@ -18,6 +18,7 @@ export default class Quote extends Component
         .then(data => {
             this.setState({quote:data.content, author:data.author})
         })
+        .catch((err) => console.log(err))
     }
 
     render() {

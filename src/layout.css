@@ -12,7 +12,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   cursor:default;
   /* background-color: #a1c3d1; */
-  background-image:linear-gradient(to top, rgba(23, 32, 42, 0.20), rgba(0, 0, 0, 0.80)), url("https://picsum.photos/1920/1080?random=6");
+  /*background-image:linear-gradient(to top, rgba(23, 32, 42, 0.20), rgba(0, 0, 0, 0.80)), url("https://picsum.photos/1920/1080?random=6";*/
   background-size: cover;
   background-position:center;
   background-repeat: no-repeat;
@@ -58,6 +58,48 @@ body {
   /* padding:2px 10px; */
 }
 
+#titleandlogo #options-box{
+  display:flex;
+  align-items:center;
+  margin-left:15px;
+}
+
+#titleandlogo #options-box img{
+  cursor:pointer;
+  object-fit:cover;
+  border-radius:50%;
+  height:45px;
+}
+
+#titleandlogo #options-box #options-list{
+  background-color:white;
+  position: absolute;
+  right:4.5%;
+  top:95px;
+  border-radius:8px;
+  overflow: hidden;
+}
+
+#titleandlogo #options-box #options-list div:nth-child(1){
+  padding:15px;
+}
+
+#titleandlogo #options-box #options-list div:nth-child(1):hover{
+  background-color:#eee;
+  cursor:pointer;
+  transition:all .25s ease-in-out;
+}
+
+#titleandlogo #options-box #options-list #logout-button{
+  cursor:pointer;
+  width:100%;
+  padding:15px;
+  box-sizing: border-box;
+  background-color:#658a99;
+  color:white;
+  text-align: center;
+}
+
 #body{
   width:85vw;
   margin:auto;
@@ -76,3 +118,4 @@ body {
   display:flex;
   flex-direction: column;
 }
+

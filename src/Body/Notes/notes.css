@@ -116,6 +116,7 @@
 #notes #create-new-note-box{
     background-color:#bed3db;
     padding:10px;
+    padding-bottom:15px;
     margin:10px 5px;
     border-radius:8px;
 }

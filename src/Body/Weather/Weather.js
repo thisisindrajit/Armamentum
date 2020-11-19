@@ -49,8 +49,8 @@ export default class Weather extends PureComponent {
         }
       })
       .catch((err) => {
+        console.log(err);
         this.setState({ isLoading: false });
-        console.error("Error:" + err);
       });
     }
   }

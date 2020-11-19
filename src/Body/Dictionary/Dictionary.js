@@ -32,7 +32,8 @@ export default class Dictionary extends PureComponent {
         //console.log(result);
         this.setState({ word: "", isLoading: false, result: result });
       })
-      .catch(() => {
+      .catch((err) => {
+        console.log(err);
         this.setState({ error: true, isLoading: false, word: "" });
       });
   };

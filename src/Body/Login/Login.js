@@ -4,21 +4,18 @@ import './login.css';
 import logo from "../../logo_black.png";
 import { useAuth0 } from "@auth0/auth0-react";
 import Loading from './Loading';
+import Layout from '../../Layout';
 
 const Login = (props) => {
 
-    console.log("inside login!");
-
     const { isLoading, isAuthenticated } = useAuth0();
-
-    console.log(isLoading, isAuthenticated);
 
     if (isLoading) {
         return <Loading />
     }
 
     if (isAuthenticated) {
-    props.history.push("/home");
+        return <Layout />
     }
 
     return(

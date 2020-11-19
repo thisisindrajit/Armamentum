@@ -10,7 +10,7 @@ export default class Welcome extends Component
     return(
         <div id="content">
         <div id="welcome">
-            {hour < 12 ? "Good Morning" : hour < 16 ? "Good Afternoon" : hour < 21 ? "Good Evening" : "Good Night"} Indrajit!
+            {hour < 12 ? "Good Morning" : hour < 16 ? "Good Afternoon" : hour < 21 ? "Good Evening" : "Good Night"}!
         </div>
         </div>
     );

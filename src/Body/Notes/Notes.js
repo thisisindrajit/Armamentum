@@ -124,12 +124,14 @@ export default class Notes extends PureComponent {
 
   render() {
 
-    console.log(this.props.name);
+    //console.log(this.props.name);
 
-    //for now I have hardcoded the name. Must change it later!
-    return this.state.isLoading === true && this.props.name === "Indrajit Vijayakumar" ? (
+    console.log(this.props.user);
+
+    //for now I have hardcoded the name (which is my email id in this case). Must change it later!
+    return this.state.isLoading === true ? (
       <div id="loading">Loading notes...</div>
-    ) : (
+    ) : this.props.user.email === "indrajitvijayakumar@gmail.com" ? (
       <div id="notes">
         <div id="create-new-note" onClick={() => this.openbox()}>
           Create a new note
@@ -201,6 +203,6 @@ export default class Notes extends PureComponent {
           );
         })}
       </div>
-    );
+    ) : <div id="loading">Notes Widget coming soon for you!</div>;
   }
 }
