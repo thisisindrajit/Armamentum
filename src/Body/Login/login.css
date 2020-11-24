@@ -1,17 +1,18 @@
-body{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    height:100vh;
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #ddd;
 }
 
-#loading-box{
-  width:100vw;
-  height:100vh;
-  background-color:white;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+#loading-box {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #login-box {
@@ -23,26 +24,46 @@ body{
   align-items: center;
   justify-content: center;
   background-color: white;
-  width:30vw;
+  width: 30vw;
+  box-shadow: 0 8px 6px -6px #bbb;
 }
 
-#login-box #logo{
-    height:120px;
-    width:120px;
+#login-box #logo {
+  height: 120px;
+  width: 120px;
 }
 
-#login-box #login-button{
-        border-radius:8px;
-        background-color:#658a99;
-        padding:10px;
-        font-family: 'IBM Plex Sans', sans-serif;
-        font-size:1rem;
-        font-weight: bold;
-        color:white;
-        cursor:pointer;
-        width:fit-content;
-        display:flex;
-        border:none;
-        align-items:center;
-        margin-top:25px;
+#login-box #login-button {
+  border-radius: 8px;
+  background-color: #658a99;
+  padding: 10px;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  width: fit-content;
+  display: flex;
+  border: none;
+  align-items: center;
+  margin-top: 25px;
+}
+
+#login-box #details{
+  text-align: center;
+  font-size:1rem;
+  color:#aaa;
+  margin-top:25px;
+  border-top:2px solid #ddd;
+  padding-top:20px;
+  line-height: 2rem;
+}
+
+#login-box #details a, a:visited{
+  text-decoration:none;
+  color:#4e7686;
+}
+
+#login-box #details a:hover{
+  text-decoration:underline;
 }

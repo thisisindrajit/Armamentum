@@ -1,6 +1,82 @@
-#quick-links{
-    background-color:white;
-    padding:20px;
+#quick-links {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+#quick-links #add-link {
+  border: 2px solid #658a99;
+  padding: 12px;
+  color: #658a99;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 8px;
+}
+
+#quick-links #add-link-box {
+  background-color: #658a99;
+  color: white;
+  padding: 20px 10px;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+#quick-links #add-link-box input {
+  padding: 10px;
+  width: 95%;
+  background-color: white;
+  border: none;
+  margin: 5px 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 1rem;
+}
+
+#quick-links #add-link-box #create-link {
+  border:2px solid white;
+  padding: 8px;
+  color: white;
+  cursor: pointer;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  margin:auto;
+  margin-top:5px;
+}
+
+#quick-links .link-box{
+    box-shadow:0 2px 7px #bbb;
     border-radius:8px;
-    margin-top:1rem;
+    cursor:pointer;
+    transition:0.2s all ease-in-out;
+    margin:10px 0;
+    display:flex;
+    align-items:center;
+    overflow: hidden;
+}
+
+#quick-links .link-box:hover{
+    transform:scale(1.03);
+}
+
+#quick-links .link-box .link-title{
+  width:90%;
+  padding:0 13px;
+}
+
+#quick-links .link-box .icons{
+  display:flex;
+  padding:13px;
+  align-items:center;
+  background-color:#F7F9F9;
+}
+
+#quick-links .link-box .icons .icons-1, #quick-links .link-box .icons .icons-2{
+  margin:auto 10px;
 }

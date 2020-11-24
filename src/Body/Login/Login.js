@@ -23,6 +23,8 @@ const Login = (props) => {
             <img id="logo" src={logo} alt="Armamentum_logo"></img>
             Welcome to Armamentum!
             <LoginButton />
+
+            <span id="details">Armamentum is a custom new tab made by Indrajit. It's one of his dream personal projects. <a href="https://thisisindrajit.github.io/portfolio" target="_blank" rel="noopener noreferrer">Click here</a> to view his portfolio!</span>
         </div>
 );
 }

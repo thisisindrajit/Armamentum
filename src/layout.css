@@ -35,7 +35,7 @@ body {
   margin-top:60px;
   margin-bottom:75px;
   display:flex;
-  width:90vw;
+  width:95vw;
   align-items: center;
 }
 
@@ -74,7 +74,7 @@ body {
 #titleandlogo #options-box #options-list{
   background-color:white;
   position: absolute;
-  right:4.5%;
+  right:2%;
   top:95px;
   border-radius:8px;
   overflow: hidden;
@@ -103,7 +103,7 @@ body {
 #body{
   width:85vw;
   margin:auto;
-  margin-bottom:50px;
+  padding-bottom:50px;
 }
 
 

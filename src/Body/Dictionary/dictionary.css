@@ -11,7 +11,7 @@
 }
 
 #dictionary #search input{
-    padding:8px;
+    padding:10px;
     width:100%;
     background-color:white;
     border:none;
@@ -38,7 +38,7 @@
     cursor:pointer;
     width:fit-content;
     display:flex;
-    border:none;
+    border:2px solid #658a99;
     border-radius:0;
     align-items:center;
     margin-top:10px;
