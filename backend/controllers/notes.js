@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const faunadb = require('faunadb');
+const jwtCheck = require("../middlewares/jwt");
 
 //connecting to the database
 //Armamentum DB secret key - fnAD4bFmIKACBXcqwnPaRn677HNGOhn_QDatlMpI
@@ -31,7 +32,7 @@ router.get("/", async (req, res) => {
     
 })
 
-router.put("/updatenote/:id", async (req,res) => {
+router.put("/updatenote/:id", jwtCheck, async (req,res) => {
 
     let id = req.params.id;
 
@@ -51,7 +52,7 @@ router.put("/updatenote/:id", async (req,res) => {
 
 })
 
-router.post("/postnote", async (req, res) => {
+router.post("/postnote", jwtCheck, async (req, res) => {
 
     await client.query(Create(Collection("Notes"), {data: req.body}))
         .then(doc => {
@@ -60,7 +61,7 @@ router.post("/postnote", async (req, res) => {
         .catch(err => res.status(400).json({error:err}))
 })
 
-router.delete("/deletenote/:id", async (req, res) => {
+router.delete("/deletenote/:id", jwtCheck, async (req, res) => {
 
     await client.query(Delete(Ref(Collection("Notes"), req.params.id)))
         .then(doc => res.status(200).json(doc))

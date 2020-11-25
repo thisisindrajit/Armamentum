@@ -1,10 +1,12 @@
 import React, { PureComponent } from "react";
 import "./notes.css";
 import autosize from "autosize";
+import { withAuth0 } from "@auth0/auth0-react";
 
-export default class Notes extends PureComponent {
+class Notes extends PureComponent {
   constructor() {
     super();
+
     this.state = {
       notes: [],
       isLoading: true,
@@ -20,12 +22,14 @@ export default class Notes extends PureComponent {
 
   componentDidMount() {
     //autosize(this.notebody);
-
     fetch("https://armamentum.herokuapp.com/notes")
       .then((res) => res.json())
       .then((res) => {
         //console.log(res);
         this.setState({ notes: res, isLoading: false });
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }
 
@@ -46,33 +50,42 @@ export default class Notes extends PureComponent {
       body: this.state.newnotebody,
     };
 
-    fetch("https://armamentum.herokuapp.com/notes/postnote", {
-      method: "POST",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then(() => {
-        fetch("https://armamentum.herokuapp.com/notes")
-          .then((res) => res.json())
-          .then((res) => {
-            let updateStatus = [];
+    const { getAccessTokenSilently } = this.props.auth0;
 
-            //updateStatus for each note fetched from API
-            res.forEach((val, index) => {
-              updateStatus[index] = "";
-            });
+    getAccessTokenSilently({
+      audience: process.env.REACT_APP_AUTH0_AUDIENCE,
+    }).then((token) => {
+      fetch("https://armamentum.herokuapp.com/notes/postnote", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data),
+      })
+        .then((res) => res.json())
+        .then(() => {
+          fetch("https://armamentum.herokuapp.com/notes")
+            .then((res) => res.json())
+            .then((res) => {
+              let updateStatus = [];
 
-            this.setState({
-              notes: res,
-              isLoading: false,
-              newnotetitle: "",
-              newnotebody: "",
-              showcreatenewnotebox: false,
-              updateStatus: updateStatus,
+              //updateStatus for each note fetched from API
+              res.forEach((val, index) => {
+                updateStatus[index] = "";
+              });
+
+              this.setState({
+                notes: res,
+                isLoading: false,
+                newnotetitle: "",
+                newnotebody: "",
+                showcreatenewnotebox: false,
+                updateStatus: updateStatus,
+              });
             });
-          });
-      });
+        });
+    });
   };
 
   openbox = () => {
@@ -84,6 +97,7 @@ export default class Notes extends PureComponent {
   };
 
   updateHandler = (id, index) => {
+    const { getAccessTokenSilently } = this.props.auth0;
     let updateStatus = this.state.updateStatus;
     updateStatus[index] = "Updating...";
 
@@ -94,42 +108,55 @@ export default class Notes extends PureComponent {
       body: this.state.notes[index][1],
     };
 
-    fetch("https://armamentum.herokuapp.com/notes/updatenote/" + id, {
-      method: "PUT",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify(newbody),
-    }).then(() => {
-      //console.log(res);
-      updateStatus[index] = "Updated!";
-      this.setState({ isUpdating: false, updateStatus: updateStatus });
-      //alert("Updated note!");
+    getAccessTokenSilently({
+      audience: process.env.REACT_APP_AUTH0_AUDIENCE,
+    }).then((token) => {
+      fetch("https://armamentum.herokuapp.com/notes/updatenote/" + id, {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(newbody),
+      }).then(() => {
+        //console.log(res);
+        updateStatus[index] = "Updated!";
+        this.setState({ isUpdating: false, updateStatus: updateStatus });
+        //alert("Updated note!");
+      });
     });
   };
 
   deleteHandler = (id) => {
-    fetch("https://armamentum.herokuapp.com/notes/deletenote/" + id, {
-      method: "DELETE",
-    }).then(() => {
-      fetch("https://armamentum.herokuapp.com/notes")
-        .then((res) => res.json())
-        .then((res) => {
-          this.setState({
-            notes: res,
-            isLoading: false,
-            showcreatenewnotebox: false,
+    const { getAccessTokenSilently } = this.props.auth0;
+    getAccessTokenSilently({
+      audience: process.env.REACT_APP_AUTH0_AUDIENCE,
+    }).then((token) => {
+      fetch("https://armamentum.herokuapp.com/notes/deletenote/" + id, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }).then(() => {
+        fetch("https://armamentum.herokuapp.com/notes")
+          .then((res) => res.json())
+          .then((res) => {
+            this.setState({
+              notes: res,
+              isLoading: false,
+              showcreatenewnotebox: false,
+            });
           });
-        });
+      });
     });
   };
 
   render() {
     //console.log(this.props.name);
-
-    console.log(this.props.user);
+    //console.log(this.props.user);
 
     //for now I have hardcoded the name (which is my email id in this case). Must change it later!
-    return this.props.user.email === "indrajitvijayakumar@gmail.com" ? 
-    (
+    return this.props.user.email === "indrajitvijayakumar@gmail.com" ? (
       <div id="notes">
         <div id="create-new-note" onClick={() => this.openbox()}>
           Create a new note
@@ -213,3 +240,5 @@ export default class Notes extends PureComponent {
     );
   }
 }
+
+export default withAuth0(Notes);
