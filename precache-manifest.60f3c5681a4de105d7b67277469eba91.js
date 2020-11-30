@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9b0c9366d815d2b6774ef20a5f1db965",
+    "revision": "0fae4e6e41be41af94c386e5c71f03c0",
     "url": "/Armamentum/index.html"
   },
   {
