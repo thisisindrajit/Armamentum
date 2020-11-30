@@ -74,7 +74,7 @@ body {
 #titleandlogo #options-box #options-list{
   background-color:white;
   position: absolute;
-  right:2%;
+  right:2vw;
   top:95px;
   border-radius:8px;
   overflow: hidden;
@@ -119,3 +119,67 @@ body {
   flex-direction: column;
 }
 
+
+@media all and (min-width:1600px){
+  #titleandlogo #options-box #options-list{
+    right:2.5vw;
+  }
+}
+
+@media all and (max-width:1250px){
+  #body{
+    width:90vw;
+  }
+
+  #titleandlogo #options-box #options-list{
+    right:25px;
+  }
+}
+
+@media all and (max-width:1000px){
+
+  #body{
+    width:75vw;
+  }
+  #body #widget-grid{
+    grid-template-columns:1fr;
+  }
+
+  #titleandlogo #title{
+    display:none;
+  }
+
+  #titleandlogo #time{
+    font-size:0.7rem;
+  }
+
+  #titleandlogo #logo{
+    height:35px;
+  }
+
+  #titleandlogo #options-box img{
+    height:40px;
+  }
+}
+
+@media all and (max-width:769px){
+
+  #body{
+    width:90vw;
+  }
+
+  #titleandlogo{
+    width:90vw;
+  }
+
+  #titleandlogo #options-box #options-list{
+    right:5%;
+  }
+}
+
+@media all and (max-width:400px){
+
+  #body{
+    width:92vw;
+  }
+}

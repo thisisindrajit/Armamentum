@@ -11,3 +11,15 @@
 #weather #temperature{
     font-size:3rem;
 }
+
+@media all and (max-width:769px){
+    #weather #temperature{
+        font: size 2.5rem;
+    }
+}
+
+@media all and (max-width:400px){
+    #weather #temperature{
+        font-size: 2.5rem;
+    }
+}

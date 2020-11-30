@@ -67,3 +67,17 @@ body {
 #login-box #details a:hover{
   text-decoration:underline;
 }
+
+
+@media all and (max-width:1250px){
+  #login-box {
+    width:50vw;
+  }
+}
+
+
+@media all and (max-width:850px){
+  #login-box {
+    width:70vw;
+  }
+}

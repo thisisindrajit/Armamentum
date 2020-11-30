@@ -7,7 +7,7 @@ export default class Loading extends Component
 
     return(
         <div id="loading-box">
-            <img src={loading} alt="loading_gif" style={{height:"250px"}}></img>
+            <img src={loading} alt="loading_gif" style={{height:"200px"}}></img>
         </div>
     );
     }

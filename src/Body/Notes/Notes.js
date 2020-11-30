@@ -156,15 +156,14 @@ class Notes extends PureComponent {
     //console.log(this.props.user);
 
     //for now I have hardcoded the name (which is my email id in this case). Must change it later!
-    return this.props.user.email === "indrajitvijayakumar@gmail.com" ? (
+    return this.state.isLoading === true ? (
+      <div id="loading">Loading your notes...</div>
+    ) : this.props.user.email === "indrajitvijayakumar@gmail.com" ? (
       <div id="notes">
         <div id="create-new-note" onClick={() => this.openbox()}>
           Create a new note
         </div>
-        {this.state.isLoading === true ? (
-          <div id="loading">Loading your notes...</div>
-        ) : (
-          this.state.showcreatenewnotebox && (
+          {this.state.showcreatenewnotebox && (
             <div id="create-new-note-box">
               <textarea
                 className="note-title"
@@ -194,7 +193,7 @@ class Notes extends PureComponent {
               </div>
             </div>
           )
-        )}
+        }
         {this.state.notes.map((note, index) => {
           return (
             <div className="note" key={note[3]["@ref"].id}>
