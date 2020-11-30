@@ -157,7 +157,7 @@ class Notes extends PureComponent {
 
     //for now I have hardcoded the name (which is my email id in this case). Must change it later!
     return this.state.isLoading === true ? (
-      <div id="loading">Loading your notes...</div>
+      <div id="loading">Loading your 🗒️notes...</div>
     ) : this.props.user.email === "indrajitvijayakumar@gmail.com" ? (
       <div id="notes">
         <div id="create-new-note" onClick={() => this.openbox()}>

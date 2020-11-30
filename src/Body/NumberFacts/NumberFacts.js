@@ -27,6 +27,6 @@ export default class NumberFacts extends PureComponent {
       <div id="fact-box">
           {"Fact about number " + this.state.fact.number}
           <span id="fact">{this.state.fact.text}</span></div>
-    ) : <div id="fact-box-loading">Fetching a fact for you...</div>;
+    ) : <div id="fact-box-loading">Fetching a 🌟fact for you...</div>;
   }
 }

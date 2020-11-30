@@ -80,6 +80,7 @@ export default class QuickLinks extends PureComponent {
               name="title"
               placeholder="Enter the title"
               value={this.state.title}
+              maxLength="50"
               autoComplete="off"
               onChange={this.inputHandler}
             ></input>
@@ -112,7 +113,7 @@ export default class QuickLinks extends PureComponent {
               >
                 {name}
               </span>
-              <div className="icons">
+              <div className="icons" onClick={() => this.deleteLink(name)}>
                 <svg
                   className="icons-2"
                   width="1.2em"
@@ -120,7 +121,7 @@ export default class QuickLinks extends PureComponent {
                   viewBox="0 0 16 16"
                   fill="#E74C3C"
                   xmlns="http://www.w3.org/2000/svg"
-                  onClick={() => this.deleteLink(name)}
+                  
                 >
                   <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
                   <path

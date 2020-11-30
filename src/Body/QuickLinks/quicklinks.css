@@ -67,13 +67,15 @@
 
 #quick-links .link-box .link-title{
   width:90%;
-  padding:0 13px;
+  overflow: hidden;
+  padding:13px;
 }
 
 #quick-links .link-box .icons{
   display:flex;
   padding:13px;
   align-items:center;
+  align-self:stretch;
   background-color:#F7F9F9;
 }
 
