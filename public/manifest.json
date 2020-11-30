@@ -1,11 +1,15 @@
 {
-  "short_name": "Armamentum",
-  "name": "Armamentum - the best new tab ever.",
+  "name": "Armamentum",
   "icons": [
     {
-      "src": "logo_pic.png",
+      "src": "logo_bg.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo_bg.png",
       "type": "image/png",
-      "sizes": "3000x3000"
+      "sizes": "192x192"
     }
   ],
   "start_url": ".",
