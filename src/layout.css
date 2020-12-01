@@ -71,10 +71,18 @@ body {
   height:45px;
 }
 
-#titleandlogo #options-box #options-list{
+#holder{
+  position:absolute;
+  margin-top:-70px;
+  width:95vw;
+}
+
+
+#holder #options-list{
   background-color:white;
-  position: absolute;
-  right:2vw;
+  margin:auto;
+  margin-right:0;
+  width:fit-content;
   display:none;
   opacity:0;
   transform:translateY(-0.75rem);
@@ -92,17 +100,17 @@ body {
   }
 }
 
-#titleandlogo #options-box #options-list div:nth-child(1){
+#holder #options-list div:nth-child(1){
   padding:15px;
 }
 
-#titleandlogo #options-box #options-list div:nth-child(1):hover{
+#holder #options-list div:nth-child(1):hover{
   background-color:#eee;
   cursor:pointer;
   transition:all .25s ease-in-out;
 }
 
-#titleandlogo #options-box #options-list #logout-button{
+#holder #options-list #logout-button{
   cursor:pointer;
   width:100%;
   padding:15px;
@@ -132,19 +140,9 @@ body {
 }
 
 
-@media all and (min-width:1600px){
-  #titleandlogo #options-box #options-list{
-    right:2.5vw;
-  }
-}
-
 @media all and (max-width:1250px){
   #body{
     width:90vw;
-  }
-
-  #titleandlogo #options-box #options-list{
-    right:25px;
   }
 }
 
@@ -180,12 +178,8 @@ body {
     width:90vw;
   }
 
-  #titleandlogo{
+  #titleandlogo, #holder{
     width:90vw;
-  }
-
-  #titleandlogo #options-box #options-list{
-    right:5%;
   }
 }
 

@@ -172,15 +172,17 @@ const Layout = (props) => {
             alt="profile_picture"
             onClick={toggleoptionsbox}
           ></img>
-          <div id="options-list">
-            <div onClick={togglewallpaper}>
-              {wallpapertype === "wallpaper"
-                ? "No Wallpaper"
-                : "Random Wallpaper"}
-            </div>
-            <div>
-              <Logout />
-            </div>
+        </div>
+      </div>
+      <div id="holder">
+        <div id="options-list">
+          <div onClick={togglewallpaper}>
+            {wallpapertype === "wallpaper"
+              ? "No Wallpaper"
+              : "Random Wallpaper"}
+          </div>
+          <div>
+            <Logout />
           </div>
         </div>
       </div>
