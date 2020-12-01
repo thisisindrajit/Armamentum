@@ -75,9 +75,21 @@ body {
   background-color:white;
   position: absolute;
   right:2vw;
+  display:none;
+  opacity:0;
+  transform:translateY(-0.75rem);
   top:95px;
   border-radius:8px;
   overflow: hidden;
+}
+
+@keyframes slide-down{
+
+  100%
+  {
+    opacity:1;
+    transform:none;
+  }
 }
 
 #titleandlogo #options-box #options-list div:nth-child(1){

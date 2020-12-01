@@ -99,7 +99,9 @@ const Layout = (props) => {
     localStorage.setItem("bg-type", "wallpaper");
   }
 
-  const [wallpapertype, setwallpapertype] = useState(localStorage.getItem("bg-type"));
+  const [wallpapertype, setwallpapertype] = useState(
+    localStorage.getItem("bg-type")
+  );
 
   if (wallpapertype === "wallpaper") {
     document.body.style.backgroundImage =
@@ -114,10 +116,21 @@ const Layout = (props) => {
   };
 
   const toggleoptionsbox = () => {
+    const optionslist = document.getElementById("options-list");
+
+    if (!optionsboxopen) {
+      optionslist.style.animation =
+        "slide-down 0.25s cubic-bezier(.08,.5,.66,1) forwards";
+      optionslist.style.display = "block";
+    } else {
+      optionslist.style.display = "none";
+    }
+
     setoptionsboxopen(!optionsboxopen);
   };
 
   const togglewallpaper = () => {
+
     if (wallpapertype === "wallpaper") {
       localStorage.setItem("bg-type", "none");
       setwallpapertype("none");
@@ -150,18 +163,16 @@ const Layout = (props) => {
             alt="profile_picture"
             onClick={toggleoptionsbox}
           ></img>
-          {optionsboxopen && (
-            <div id="options-list">
-              <div onClick={togglewallpaper}>
-                {wallpapertype === "wallpaper"
-                  ? "No Wallpaper"
-                  : "Random Wallpaper"}
-              </div>
-              <div>
-                <Logout />
-              </div>
+          <div id="options-list">
+            <div onClick={togglewallpaper}>
+              {wallpapertype === "wallpaper"
+                ? "No Wallpaper"
+                : "Random Wallpaper"}
             </div>
-          )}
+            <div>
+              <Logout />
+            </div>
+          </div>
         </div>
       </div>
 
