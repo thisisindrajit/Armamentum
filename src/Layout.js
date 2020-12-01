@@ -11,7 +11,9 @@ import Pictures from "./Body/Pictures/Pictures";
 import Dictionary from "./Body/Dictionary/Dictionary";
 import NumberFacts from "./Body/NumberFacts/NumberFacts";
 import QuickLinks from "./Body/QuickLinks/QuickLinks";
+import NYT from "./Body/NYT/NYT";
 import Logout from "./Body/Login/Logout";
+import Loading from "./Body/Login/Loading";
 import { useAuth0 } from "@auth0/auth0-react";
 
 //Have uninstalled Vanta package since it took a lot of processing to render the background, making the website slow
@@ -93,6 +95,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 const Layout = (props) => {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
   const [optionsboxopen, setoptionsboxopen] = useState(false);
+  const [wallpaperloaded, setWallpaperLoaded] = useState(false);
 
   //setting wallpaper type for the first time
   if (!localStorage.hasOwnProperty("bg-type")) {
@@ -103,13 +106,20 @@ const Layout = (props) => {
     localStorage.getItem("bg-type")
   );
 
-  if (wallpapertype === "wallpaper") {
-    document.body.style.backgroundImage =
-      'linear-gradient(to top, rgba(23, 32, 42, 0.20), rgba(0, 0, 0, 0.80)), url("https://picsum.photos/1920/1080?random=6")';
-  } else {
-    document.body.style.backgroundImage = "none";
-    document.body.style.backgroundColor = "#050505";
-  }
+  useEffect(() => {
+    if (wallpapertype === "wallpaper") {
+      fetch("https://picsum.photos/1920/1080?random=6").then((data) => {
+        document.body.style.backgroundImage =
+          'linear-gradient(to top, rgba(23, 32, 42, 0.20), rgba(0, 0, 0, 0.80)), url("' +
+          data.url +
+          '")';
+        setWallpaperLoaded(true);
+      });
+    } else {
+      document.body.style.backgroundImage = "none";
+      document.body.style.backgroundColor = "#050505";
+    }
+  }, [wallpapertype]);
 
   const tick = () => {
     setTime(new Date().toLocaleTimeString());
@@ -130,7 +140,6 @@ const Layout = (props) => {
   };
 
   const togglewallpaper = () => {
-
     if (wallpapertype === "wallpaper") {
       localStorage.setItem("bg-type", "none");
       setwallpapertype("none");
@@ -148,7 +157,7 @@ const Layout = (props) => {
 
   // console.log(user);
 
-  return (
+  return wallpaperloaded ? (
     <div id="bg">
       {/* logo and title */}
       <div id="titleandlogo">
@@ -189,11 +198,14 @@ const Layout = (props) => {
           </div>
           <div id="right-1">
             <NumberFacts />
+            <NYT />
             <Notes user={user} />
           </div>
         </div>
       </div>
     </div>
+  ) : (
+    <Loading />
   );
 };
 

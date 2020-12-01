@@ -12,7 +12,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   cursor:default;
   /* background-color: #a1c3d1; */
-  /*background-image:linear-gradient(to top, rgba(23, 32, 42, 0.20), rgba(0, 0, 0, 0.80)), url("https://picsum.photos/1920/1080?random=6";*/
+  /* background-image:linear-gradient(to top, rgba(23, 32, 42, 0.20), rgba(0, 0, 0, 0.80)), url("https://picsum.photos/1920/1080?random=6"); */
   background-size: cover;
   background-position:center;
   background-repeat: no-repeat;
