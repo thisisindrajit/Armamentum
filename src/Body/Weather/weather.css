@@ -10,6 +10,8 @@
 
 #weather #temperature{
     font-size:3rem;
+    display:block;
+    margin-top:2.5px;
 }
 
 @media all and (max-width:769px){

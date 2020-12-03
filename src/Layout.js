@@ -12,6 +12,7 @@ import Dictionary from "./Body/Dictionary/Dictionary";
 import NumberFacts from "./Body/NumberFacts/NumberFacts";
 import QuickLinks from "./Body/QuickLinks/QuickLinks";
 import NYT from "./Body/NYT/NYT";
+import GuardianNews from "./Body/Guardian/Guardian";
 import Logout from "./Body/Login/Logout";
 import Loading from "./Body/Login/Loading";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -196,6 +197,7 @@ const Layout = (props) => {
             <Weather />
             <QuickLinks />
             <Dictionary />
+            <GuardianNews />
             <Pictures />
           </div>
           <div id="right-1">

@@ -13,7 +13,7 @@ export default class NYT extends Component
 
     render() {
     return(
-        <div id="news-box">This is the New York Times Component</div>
+        <div id="news-box-nyt">This is the New York Times Component</div>
     );
     }
 }
