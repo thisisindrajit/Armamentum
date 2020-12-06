@@ -97,7 +97,7 @@ export default class Dictionary extends PureComponent {
           </div>
         ) : null}
         {this.state.error === true && (
-          <div>{"Sorry! No definition found for the given word!"}</div>
+          <div id="no-def">{"Sorry! No definition found for the given word!"}</div>
         )}
       </div>
     );

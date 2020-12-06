@@ -3,7 +3,7 @@ import "./guardian.css";
 import guardianlogo from './guardianlogo.png';
 import Guardian from "guardian-js";
 
-const api = new Guardian("8125dc9a-3498-4272-bd7c-4568c525f5e3", false);
+const api = new Guardian("8125dc9a-3498-4272-bd7c-4568c525f5e3", true);
 
 export default class GuardianNews extends Component {
   constructor(props) {

@@ -46,7 +46,7 @@ export default class Picture extends PureComponent
 
     return(
         <div id="pictures-box">
-        <span id="title">Your Gallery</span>
+        <span id="title">Photos for you</span>
         {this.state.isLoading === false ?
         this.state.picurl.map((img, index) => {
             return(
