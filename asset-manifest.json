@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Armamentum/static/css/main.a0b81eae.chunk.css",
-    "main.js": "/Armamentum/static/js/main.378a7f1b.chunk.js",
-    "main.js.map": "/Armamentum/static/js/main.378a7f1b.chunk.js.map",
+    "main.css": "/Armamentum/static/css/main.731bfaf9.chunk.css",
+    "main.js": "/Armamentum/static/js/main.721d483f.chunk.js",
+    "main.js.map": "/Armamentum/static/js/main.721d483f.chunk.js.map",
     "runtime-main.js": "/Armamentum/static/js/runtime-main.bcaa7ecd.js",
     "runtime-main.js.map": "/Armamentum/static/js/runtime-main.bcaa7ecd.js.map",
     "static/js/2.38ab991e.chunk.js": "/Armamentum/static/js/2.38ab991e.chunk.js",
     "static/js/2.38ab991e.chunk.js.map": "/Armamentum/static/js/2.38ab991e.chunk.js.map",
     "index.html": "/Armamentum/index.html",
-    "precache-manifest.d9f320fe9e119183f0366ba02b253371.js": "/Armamentum/precache-manifest.d9f320fe9e119183f0366ba02b253371.js",
+    "precache-manifest.c841d86a13e6befd47a683acba3e1d54.js": "/Armamentum/precache-manifest.c841d86a13e6befd47a683acba3e1d54.js",
     "service-worker.js": "/Armamentum/service-worker.js",
-    "static/css/main.a0b81eae.chunk.css.map": "/Armamentum/static/css/main.a0b81eae.chunk.css.map",
+    "static/css/main.731bfaf9.chunk.css.map": "/Armamentum/static/css/main.731bfaf9.chunk.css.map",
     "static/js/2.38ab991e.chunk.js.LICENSE.txt": "/Armamentum/static/js/2.38ab991e.chunk.js.LICENSE.txt",
     "static/media/guardianlogo.png": "/Armamentum/static/media/guardianlogo.d9a0b4ad.png",
     "static/media/loading.gif": "/Armamentum/static/media/loading.58607b10.gif",
@@ -20,7 +20,7 @@
   "entrypoints": [
     "static/js/runtime-main.bcaa7ecd.js",
     "static/js/2.38ab991e.chunk.js",
-    "static/css/main.a0b81eae.chunk.css",
-    "static/js/main.378a7f1b.chunk.js"
+    "static/css/main.731bfaf9.chunk.css",
+    "static/js/main.721d483f.chunk.js"
   ]
 }
