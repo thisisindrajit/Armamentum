@@ -13,10 +13,18 @@ export default class Quote extends Component
     }
 
     componentDidMount(){
-        fetch('https://api.quotable.io/random')
+        // fetch('https://api.quotable.io/random')
+        // .then(response => response.json())
+        // .then(data => {
+        //     this.setState({quote:data.content, author:data.author})
+        // })
+        // .catch((err) => console.log(err))
+
+        //testing using another api - better quote API
+        fetch('https://quote-garden.herokuapp.com/api/v2/quotes/random')
         .then(response => response.json())
         .then(data => {
-            this.setState({quote:data.content, author:data.author})
+            this.setState({quote:data.quote.quoteText, author:data.quote.quoteAuthor})
         })
         .catch((err) => console.log(err))
     }

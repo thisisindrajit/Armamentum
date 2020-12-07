@@ -25,6 +25,7 @@
 
 #news-box-guardian .news-list-item-guardian:nth-last-child(1){
     border-bottom:none;
+    padding-bottom:25px;
 }
 
 #news-box-guardian .news-list-item-guardian:hover{

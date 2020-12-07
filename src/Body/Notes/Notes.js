@@ -22,15 +22,23 @@ class Notes extends PureComponent {
 
   componentDidMount() {
     //autosize(this.notebody);
-    fetch("https://armamentum.herokuapp.com/notes")
-      .then((res) => res.json())
-      .then((res) => {
-        //console.log(res);
-        this.setState({ notes: res, isLoading: false });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const { getAccessTokenSilently } = this.props.auth0;
+
+    getAccessTokenSilently({
+      audience: process.env.REACT_APP_AUTH0_AUDIENCE,
+    }).then((token) =>
+      fetch("https://armamentum.herokuapp.com/notes",{ headers: {
+        Authorization: `Bearer ${token}`,
+      }})
+        .then((res) => res.json())
+        .then((res) => {
+          //console.log(res);
+          this.setState({ notes: res, isLoading: false });
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+    );
   }
 
   componentDidUpdate() {
@@ -65,25 +73,33 @@ class Notes extends PureComponent {
       })
         .then((res) => res.json())
         .then(() => {
-          fetch("https://armamentum.herokuapp.com/notes")
-            .then((res) => res.json())
-            .then((res) => {
-              let updateStatus = [];
+          const { getAccessTokenSilently } = this.props.auth0;
 
-              //updateStatus for each note fetched from API
-              res.forEach((val, index) => {
-                updateStatus[index] = "";
-              });
+          getAccessTokenSilently({
+            audience: process.env.REACT_APP_AUTH0_AUDIENCE,
+          }).then((token) =>
+          fetch("https://armamentum.herokuapp.com/notes",{ headers: {
+            Authorization: `Bearer ${token}`,
+          }})
+              .then((res) => res.json())
+              .then((res) => {
+                let updateStatus = [];
 
-              this.setState({
-                notes: res,
-                isLoading: false,
-                newnotetitle: "",
-                newnotebody: "",
-                showcreatenewnotebox: false,
-                updateStatus: updateStatus,
-              });
-            });
+                //updateStatus for each note fetched from API
+                res.forEach((val, index) => {
+                  updateStatus[index] = "";
+                });
+
+                this.setState({
+                  notes: res,
+                  isLoading: false,
+                  newnotetitle: "",
+                  newnotebody: "",
+                  showcreatenewnotebox: false,
+                  updateStatus: updateStatus,
+                });
+              })
+          );
         });
     });
   };
@@ -138,15 +154,23 @@ class Notes extends PureComponent {
           Authorization: `Bearer ${token}`,
         },
       }).then(() => {
-        fetch("https://armamentum.herokuapp.com/notes")
-          .then((res) => res.json())
-          .then((res) => {
-            this.setState({
-              notes: res,
-              isLoading: false,
-              showcreatenewnotebox: false,
-            });
-          });
+        const { getAccessTokenSilently } = this.props.auth0;
+
+        getAccessTokenSilently({
+          audience: process.env.REACT_APP_AUTH0_AUDIENCE,
+        }).then((token) =>
+        fetch("https://armamentum.herokuapp.com/notes",{ headers: {
+          Authorization: `Bearer ${token}`,
+        }})
+            .then((res) => res.json())
+            .then((res) => {
+              this.setState({
+                notes: res,
+                isLoading: false,
+                showcreatenewnotebox: false,
+              });
+            })
+        );
       });
     });
   };
@@ -163,37 +187,33 @@ class Notes extends PureComponent {
         <div id="create-new-note" onClick={() => this.openbox()}>
           Create a new note
         </div>
-          {this.state.showcreatenewnotebox && (
-            <div id="create-new-note-box">
+        {this.state.showcreatenewnotebox && (
+          <div id="create-new-note-box">
+            <textarea
+              className="note-title"
+              name={"newnotetitle"}
+              onChange={(e) => this.createnoteinputHandler(e)}
+              placeholder={"Note title"}
+              value={this.state.newnotetitle}
+              rows={1}
+            ></textarea>
+            <div className="note-body">
               <textarea
-                className="note-title"
-                name={"newnotetitle"}
+                className="note-textarea"
+                name={"newnotebody"}
                 onChange={(e) => this.createnoteinputHandler(e)}
-                placeholder={"Note title"}
-                value={this.state.newnotetitle}
+                placeholder={"Note body"}
+                value={this.state.newnotebody}
                 rows={1}
               ></textarea>
-              <div className="note-body">
-                <textarea
-                  className="note-textarea"
-                  name={"newnotebody"}
-                  onChange={(e) => this.createnoteinputHandler(e)}
-                  placeholder={"Note body"}
-                  value={this.state.newnotebody}
-                  rows={1}
-                ></textarea>
-              </div>
-              <div className="buttons">
-                <div
-                  id="create-note-button"
-                  onClick={() => this.createHandler()}
-                >
-                  Create
-                </div>
+            </div>
+            <div className="buttons">
+              <div id="create-note-button" onClick={() => this.createHandler()}>
+                Create
               </div>
             </div>
-          )
-        }
+          </div>
+        )}
         {this.state.notes.map((note, index) => {
           return (
             <div className="note" key={note[3]["@ref"].id}>
