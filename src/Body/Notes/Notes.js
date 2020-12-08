@@ -27,8 +27,9 @@ class Notes extends PureComponent {
     getAccessTokenSilently({
       audience: process.env.REACT_APP_AUTH0_AUDIENCE,
     }).then((token) =>
-      fetch("https://armamentum.herokuapp.com/notes",{ headers: {
+      fetch("https://armamentum.herokuapp.com/notes" ,{ headers: {
         Authorization: `Bearer ${token}`,
+        email: this.props.user.email
       }})
         .then((res) => res.json())
         .then((res) => {
@@ -56,6 +57,7 @@ class Notes extends PureComponent {
     const data = {
       title: this.state.newnotetitle,
       body: this.state.newnotebody,
+      email: this.props.user.email
     };
 
     const { getAccessTokenSilently } = this.props.auth0;
@@ -80,6 +82,7 @@ class Notes extends PureComponent {
           }).then((token) =>
           fetch("https://armamentum.herokuapp.com/notes",{ headers: {
             Authorization: `Bearer ${token}`,
+            email: this.props.user.email
           }})
               .then((res) => res.json())
               .then((res) => {
@@ -122,6 +125,7 @@ class Notes extends PureComponent {
     const newbody = {
       title: this.state.notes[index][2],
       body: this.state.notes[index][1],
+      email: this.props.user.email
     };
 
     getAccessTokenSilently({
@@ -161,6 +165,7 @@ class Notes extends PureComponent {
         }).then((token) =>
         fetch("https://armamentum.herokuapp.com/notes",{ headers: {
           Authorization: `Bearer ${token}`,
+          email: this.props.user.email
         }})
             .then((res) => res.json())
             .then((res) => {
@@ -177,12 +182,12 @@ class Notes extends PureComponent {
 
   render() {
     //console.log(this.props.name);
-    //console.log(this.props.user);
+    //console.log(this.props.user.email);
 
     //for now I have hardcoded the name (which is my email id in this case). Must change it later!
     return this.state.isLoading === true ? (
       <div id="loading">Loading your 🗒️notes...</div>
-    ) : this.props.user.email === "indrajitvijayakumar@gmail.com" ? (
+    ) : 
       <div id="notes">
         <div id="create-new-note" onClick={() => this.openbox()}>
           Create a new note
@@ -216,7 +221,7 @@ class Notes extends PureComponent {
         )}
         {this.state.notes.map((note, index) => {
           return (
-            <div className="note" key={note[3]["@ref"].id}>
+            <div className="note" key={note[4]["@ref"].id}>
               <textarea
                 className="note-title"
                 name={"title"}
@@ -239,13 +244,13 @@ class Notes extends PureComponent {
                 </div>
                 <div
                   className="delete-button"
-                  onClick={() => this.deleteHandler(note[3]["@ref"].id)}
+                  onClick={() => this.deleteHandler(note[4]["@ref"].id)}
                 >
                   Delete
                 </div>
                 <div
                   className="save-button"
-                  onClick={() => this.updateHandler(note[3]["@ref"].id, index)}
+                  onClick={() => this.updateHandler(note[4]["@ref"].id, index)}
                 >
                   Save
                 </div>
@@ -254,9 +259,6 @@ class Notes extends PureComponent {
           );
         })}
       </div>
-    ) : (
-      <div id="loading">Notes Widget coming soon for you!</div>
-    );
   }
 }
 
