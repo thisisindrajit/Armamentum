@@ -130,7 +130,8 @@ body {
 
 #body #widget-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  box-sizing: border-box;
+  grid-template-columns:1fr minmax(500px,1fr);
   grid-gap:1rem;
 }
 
