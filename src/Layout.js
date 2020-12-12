@@ -8,7 +8,8 @@ import Notes from "./Body/Notes/Notes";
 import Quote from "./Body/Quote/Quote";
 import Weather from "./Body/Weather/Weather";
 import Pictures from "./Body/Pictures/Pictures";
-import Dictionary from "./Body/Dictionary/Dictionary";
+//import Dictionary from "./Body/Dictionary/Dictionary";
+import GDictionary from "./Body/GDictionary/GDictionary";
 import NumberFacts from "./Body/NumberFacts/NumberFacts";
 import QuickLinks from "./Body/QuickLinks/QuickLinks";
 import NYT from "./Body/NYT/NYT";
@@ -158,7 +159,7 @@ const Layout = (props) => {
 
   // console.log(user);
 
-  return wallpaperloaded ? (
+  return wallpaperloaded || wallpapertype === "none" ? (
     <div id="bg">
       {/* logo and title */}
       <div id="titleandlogo">
@@ -196,7 +197,8 @@ const Layout = (props) => {
           <div id="left-1">
             <Weather />
             <QuickLinks />
-            <Dictionary />
+            {/* <Dictionary /> */}
+            <GDictionary />
             <GuardianNews />
             <Pictures />
           </div>

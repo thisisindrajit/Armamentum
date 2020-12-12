@@ -128,3 +128,9 @@
 #create-new-note-box .note-title::placeholder{
     color:white;
 }
+
+@media screen and (max-width:525px){
+    #notes #create-new-note{
+        width:97.5%;
+    }
+}
