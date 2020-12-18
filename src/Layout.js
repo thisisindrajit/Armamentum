@@ -204,8 +204,8 @@ const Layout = (props) => {
           </div>
           <div id="right-1">
             <NumberFacts />
-            <NYT />
             <Notes user={user} />
+            <NYT />
           </div>
         </div>
       </div>
