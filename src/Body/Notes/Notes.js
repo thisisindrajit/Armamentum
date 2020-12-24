@@ -15,24 +15,31 @@ class Notes extends PureComponent {
       newnotebody: "",
       showcreatenewnotebox: false,
       updateStatus: [],
+      rawuserjwt:""
     };
   }
 
   //https://armamentum.herokuapp.com/notes is the link for the hosted nodejs server
 
-  componentDidMount() {
+  async componentDidMount(){
     //autosize(this.notebody);
-    const { getAccessTokenSilently } = this.props.auth0;
+    const { getAccessTokenSilently,getIdTokenClaims } = this.props.auth0;
+
+    await getIdTokenClaims().then(res => {
+      this.setState({rawuserjwt: res.__raw});//this is the raw JWT containing all the user details
+    });
 
     getAccessTokenSilently({
       audience: process.env.REACT_APP_AUTH0_AUDIENCE,
-    }).then((token) =>
+    }).then((token) => 
       fetch("https://armamentum.herokuapp.com/notes" ,{ headers: {
+        userjwt:this.state.rawuserjwt,
         Authorization: `Bearer ${token}`,
         email: this.props.user.email
       }})
         .then((res) => res.json())
         .then((res) => {
+          //console.log(token);
           //console.log(res);
           this.setState({ notes: res, isLoading: false });
         })
@@ -69,6 +76,7 @@ class Notes extends PureComponent {
         method: "POST",
         headers: {
           "Content-type": "application/json",
+          userjwt:this.state.rawuserjwt,
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(data),
@@ -82,6 +90,7 @@ class Notes extends PureComponent {
           }).then((token) =>
           fetch("https://armamentum.herokuapp.com/notes",{ headers: {
             Authorization: `Bearer ${token}`,
+            userjwt:this.state.rawuserjwt,
             email: this.props.user.email
           }})
               .then((res) => res.json())
@@ -135,6 +144,7 @@ class Notes extends PureComponent {
         method: "PUT",
         headers: {
           "Content-type": "application/json",
+          userjwt:this.state.rawuserjwt,
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(newbody),
@@ -155,6 +165,7 @@ class Notes extends PureComponent {
       fetch("https://armamentum.herokuapp.com/notes/deletenote/" + id, {
         method: "DELETE",
         headers: {
+          userjwt:this.state.rawuserjwt,
           Authorization: `Bearer ${token}`,
         },
       }).then(() => {
@@ -164,6 +175,7 @@ class Notes extends PureComponent {
           audience: process.env.REACT_APP_AUTH0_AUDIENCE,
         }).then((token) =>
         fetch("https://armamentum.herokuapp.com/notes",{ headers: {
+          userjwt:this.state.rawuserjwt,
           Authorization: `Bearer ${token}`,
           email: this.props.user.email
         }})
