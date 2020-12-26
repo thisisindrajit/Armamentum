@@ -18,19 +18,15 @@
 #news-box-nyt .news-list-item-nyt {
   width: 100%;
   box-sizing: border-box;
-  border-bottom: 2px solid #eee;
   cursor: pointer;
   display: flex;
   align-items: center;
   transition: all 0.25s ease-in-out;
+  padding:10px 0;
 }
 
 #news-box-nyt .news-list-item-nyt:nth-last-child(1) {
   border-bottom: none;
-}
-
-#news-box-nyt .news-list-item-nyt:hover {
-  background-color: #eee;
 }
 
 #news-box-nyt .news-list-item-nyt .nyt-img-holder {
@@ -46,11 +42,11 @@
 }
 
 #news-box-nyt .news-list-item-nyt .other-data .nyt-title {
-  line-height: 1.6rem;
-  display:block;
-  text-overflow: ellipsis;
-  white-space:nowrap;
-  overflow: hidden;
+  display: block; 
+}
+
+#news-box-nyt .news-list-item-nyt:hover > .other-data .nyt-title{
+  text-decoration: underline;
 }
 
 #news-box-nyt .news-list-item-nyt .other-data .pubdateandsubsection {

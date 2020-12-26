@@ -33,7 +33,7 @@ export default class NYT extends Component {
     return (
       <div id="news-box-nyt">
         {this.state.isLoading ? (
-          <div style={{padding:"10px"}}>Loading news...</div>
+          <div style={{ padding: "10px" }}>Loading news...</div>
         ) : (
           <>
             <img src={nytlogo} id="nyt-logo" alt="nyt-logo"></img>
