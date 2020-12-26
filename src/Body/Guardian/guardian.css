@@ -44,7 +44,7 @@
     font-size:0.8rem;
 }
 
-#news-box-guardian .news-list-item-guardian .pubdate{
+#news-box-guardian .news-list-item-guardian .other-data .pubdate{
     display:flex;
     align-items:center;
     width:fit-content;

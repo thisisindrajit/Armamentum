@@ -77,6 +77,7 @@ class Notes extends PureComponent {
         headers: {
           "Content-type": "application/json",
           userjwt:this.state.rawuserjwt,
+          email: this.props.user.email,
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(data),
@@ -145,6 +146,7 @@ class Notes extends PureComponent {
         headers: {
           "Content-type": "application/json",
           userjwt:this.state.rawuserjwt,
+          email: this.props.user.email,
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(newbody),
@@ -166,6 +168,7 @@ class Notes extends PureComponent {
         method: "DELETE",
         headers: {
           userjwt:this.state.rawuserjwt,
+          email: this.props.user.email,
           Authorization: `Bearer ${token}`,
         },
       }).then(() => {
