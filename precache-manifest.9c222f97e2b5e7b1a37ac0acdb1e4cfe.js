@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b488bd1ac26d4e1727ddb2244406cac6",
+    "revision": "f695090d68f2cf29e034a690c049aad3",
     "url": "/Armamentum/index.html"
   },
   {
-    "revision": "1f17d95fff2cf9192c1a",
-    "url": "/Armamentum/static/css/main.2d543c3d.chunk.css"
+    "revision": "1b7e90bbe790ba29a6c5",
+    "url": "/Armamentum/static/css/main.59043cfd.chunk.css"
   },
   {
     "revision": "47249472a076f0fb936f",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Armamentum/static/js/2.db945906.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1f17d95fff2cf9192c1a",
+    "revision": "1b7e90bbe790ba29a6c5",
     "url": "/Armamentum/static/js/main.e67c82e6.chunk.js"
   },
   {
