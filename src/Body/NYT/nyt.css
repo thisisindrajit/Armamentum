@@ -1,5 +1,5 @@
 #news-box-nyt {
-  padding: 10px;
+  padding: 10px 0;
   overflow: auto;
   border-radius: 8px;
   background-color: white;
@@ -20,9 +20,13 @@
   box-sizing: border-box;
   cursor: pointer;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   transition: all 0.25s ease-in-out;
-  padding:10px 0;
+  padding:20px;
+}
+
+#news-box-nyt .news-list-item-nyt:hover{
+  background-color:#eee;
 }
 
 #news-box-nyt .news-list-item-nyt:nth-last-child(1) {
@@ -30,29 +34,27 @@
 }
 
 #news-box-nyt .news-list-item-nyt .nyt-img-holder {
-  background-color: black;
-  height: 100px;
-  width: 100px;
+  background-color: #eee;
+  height: 80px;
+  width: 80px;
   object-fit: cover;
 }
 
 #news-box-nyt .news-list-item-nyt .other-data {
-  width: calc(100% - 150px);
-  padding: 0 25px;
+  width: calc(100% - 100px);
+  margin:0 10px 0 20px;
 }
 
 #news-box-nyt .news-list-item-nyt .other-data .nyt-title {
   display: block; 
-}
-
-#news-box-nyt .news-list-item-nyt:hover > .other-data .nyt-title{
-  text-decoration: underline;
+  line-height: 1.6rem;
 }
 
 #news-box-nyt .news-list-item-nyt .other-data .pubdateandsubsection {
   font-size: 0.8rem;
   display: flex;
   margin-top:15px;
+  margin-bottom:15px;
 }
 
 #news-box-nyt .news-list-item-nyt .other-data .pubdate {
@@ -65,4 +67,23 @@
   color: #658a99;
   margin: auto;
   margin-right: 0;
+}
+
+
+@media screen and (max-width:1024px){
+  #news-box-nyt .news-list-item-nyt .nyt-img-holder {
+    margin-top:5px;
+  }
+}
+
+@media screen and (max-width:769px){
+  #news-box-nyt .news-list-item-nyt .other-data .pubdateandsubsection{
+    margin-top:10px;
+  }
+}
+
+@media screen and (max-width:340px){
+  #news-box-nyt .news-list-item-nyt .other-data .category {
+  display:none;
+  }
 }

@@ -126,13 +126,14 @@ body {
   width:85vw;
   margin:auto;
   padding-bottom:50px;
+  box-sizing:border-box;
 }
 
 
 #body #widget-grid{
   display:grid;
   box-sizing: border-box;
-  grid-template-columns:1fr minmax(500px,1fr);
+  grid-template-columns:1fr minmax(400px,1fr);
   grid-gap:1rem;
 }
 
@@ -155,7 +156,7 @@ body {
     width:75vw;
   }
   #body #widget-grid{
-    grid-template-columns:1fr;
+    grid-template-columns:minmax(100%,1fr);
   }
 
   #titleandlogo #title{
