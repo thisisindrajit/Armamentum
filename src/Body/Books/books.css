@@ -1,0 +1,55 @@
+#nytbooks{
+  padding: 10px 0;
+  overflow: auto;
+  border-radius: 8px;
+  background-color: white;
+  margin-top:1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#nytbooks #books-title{
+    margin:15px;
+}
+
+#nytbooks .book-box{
+    padding:15px 25px;
+    display:flex;
+    transition: all 0.25s ease-in-out;
+    cursor:pointer;
+}
+
+#nytbooks .book-box:hover{
+    background-color:#eee;
+}
+
+#nytbooks .book-box .bookcover{
+    margin-top:5px;
+    height:150px;
+    width:100px;
+    margin-right:15px;
+}
+
+
+#nytbooks .book-box .details .title, #nytbooks .book-box .details .author, #nytbooks .book-box .details .desc{
+    display:block;
+    text-align:justify;
+}
+
+#nytbooks .book-box .details .title{
+    font-size:1.1rem;
+    color:#658a99;
+}
+
+#nytbooks .book-box .details .author{
+    font-size:0.9rem;
+    font-style:italic;
+    margin-top:5px;
+}
+
+#nytbooks .book-box .details .desc{
+    font-size:0.9rem;
+    margin-top:10px;
+    line-height:1.6rem;
+}

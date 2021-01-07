@@ -38,6 +38,7 @@
   height: 80px;
   width: 80px;
   object-fit: cover;
+  margin-top:5px;
 }
 
 #news-box-nyt .news-list-item-nyt .other-data {
@@ -67,19 +68,6 @@
   color: #658a99;
   margin: auto;
   margin-right: 0;
-}
-
-
-@media screen and (max-width:1024px){
-  #news-box-nyt .news-list-item-nyt .nyt-img-holder {
-    margin-top:5px;
-  }
-}
-
-@media screen and (max-width:769px){
-  #news-box-nyt .news-list-item-nyt .other-data .pubdateandsubsection{
-    margin-top:10px;
-  }
 }
 
 @media screen and (max-width:340px){

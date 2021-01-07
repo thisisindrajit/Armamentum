@@ -10,6 +10,7 @@ import Weather from "./Body/Weather/Weather";
 import Pictures from "./Body/Pictures/Pictures";
 //import Dictionary from "./Body/Dictionary/Dictionary";
 import GDictionary from "./Body/GDictionary/GDictionary";
+import Books from './Body/Books/Books';
 import NumberFacts from "./Body/NumberFacts/NumberFacts";
 import QuickLinks from "./Body/QuickLinks/QuickLinks";
 import NYT from "./Body/NYT/NYT";
@@ -201,6 +202,7 @@ const Layout = (props) => {
             <GDictionary />
             <GuardianNews />
             <Pictures />
+            <Books />
           </div>
           <div id="right-1">
             <NumberFacts />

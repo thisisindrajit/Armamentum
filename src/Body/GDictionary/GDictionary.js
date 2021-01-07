@@ -25,10 +25,10 @@ export default class GDictionary extends Component {
     fetch("https://api.dictionaryapi.dev/api/v2/entries/en/" + this.state.word)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        //console.log(data);
 
         //in case no definition is found for the given word
-        if (data.title && data.title === "No Definitions Found") {
+        if ((data.title && data.title === "No Definitions Found") || data[0].meanings.length === 0) {
           this.setState({ error: true, isLoading: false });
         }
 
