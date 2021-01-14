@@ -10,7 +10,7 @@ import Weather from "./Body/Weather/Weather";
 import Pictures from "./Body/Pictures/Pictures";
 //import Dictionary from "./Body/Dictionary/Dictionary";
 import GDictionary from "./Body/GDictionary/GDictionary";
-import Books from './Body/Books/Books';
+import Books from "./Body/Books/Books";
 import NumberFacts from "./Body/NumberFacts/NumberFacts";
 import QuickLinks from "./Body/QuickLinks/QuickLinks";
 import NYT from "./Body/NYT/NYT";
@@ -195,20 +195,41 @@ const Layout = (props) => {
         <Welcome />
         <Quote />
         <div id="widget-grid">
-          <div id="left-1">
-            <Weather />
-            <QuickLinks />
-            {/* <Dictionary /> */}
-            <GDictionary />
-            <GuardianNews />
-            <Pictures />
-            <Books />
-          </div>
-          <div id="right-1">
-            <NumberFacts />
-            <Notes user={user} />
-            <NYT />
-          </div>
+          {window.innerWidth >= 1000 ? (
+            <>
+              <div id="left-1">
+                <Weather />
+                <QuickLinks />
+                {/* <Dictionary /> */}
+                <GDictionary />
+                <GuardianNews />
+                <Pictures />
+                <Books />
+              </div>
+              <div id="right-1">
+                <NumberFacts />
+                <Notes user={user} />
+                <NYT />
+              </div>
+            </>
+          ) : (
+            //phone mode
+            <>
+              <div id="left-1">
+                <Weather />
+                <QuickLinks />
+                <Notes user={user} />
+                <GDictionary />
+                <GuardianNews /> 
+              </div>
+              <div id="right-1">
+                <NYT />
+                <NumberFacts />
+                <Pictures />
+                <Books />
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>

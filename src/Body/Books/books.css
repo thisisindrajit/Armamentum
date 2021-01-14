@@ -14,10 +14,12 @@
 }
 
 #nytbooks .book-box{
-    padding:15px 25px;
+    padding:15px;
+    padding-right:25px;
     display:flex;
     transition: all 0.25s ease-in-out;
     cursor:pointer;
+    justify-content:center;
 }
 
 #nytbooks .book-box:hover{
@@ -35,6 +37,7 @@
 #nytbooks .book-box .details .title, #nytbooks .book-box .details .author, #nytbooks .book-box .details .desc{
     display:block;
     text-align:justify;
+    line-height:1.6rem;
 }
 
 #nytbooks .book-box .details .title{
@@ -45,11 +48,10 @@
 #nytbooks .book-box .details .author{
     font-size:0.9rem;
     font-style:italic;
-    margin-top:5px;
+    margin-top:2.5px;
 }
 
 #nytbooks .book-box .details .desc{
     font-size:0.9rem;
     margin-top:10px;
-    line-height:1.6rem;
 }

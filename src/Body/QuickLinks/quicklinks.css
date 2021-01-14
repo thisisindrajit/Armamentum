@@ -82,3 +82,9 @@
 #quick-links .link-box .icons .icons-1, #quick-links .link-box .icons .icons-2{
   margin:auto 10px;
 }
+
+@media all and (max-width:1000px){
+  #quick-links {
+    margin:1rem 0;
+  }
+}

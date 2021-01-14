@@ -73,7 +73,7 @@
     margin:auto;
 }
 
-.note .buttons .update-status{
+.note .buttons .update-status, #create-new-note-box .buttons .update-status{
     margin:auto;
     margin-left:8px;
     font-size:0.9rem;

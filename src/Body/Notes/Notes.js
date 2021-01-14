@@ -15,28 +15,31 @@ class Notes extends PureComponent {
       newnotebody: "",
       showcreatenewnotebox: false,
       updateStatus: [],
-      rawuserjwt:""
+      createStatus:"",
+      rawuserjwt: "",
     };
   }
 
   //https://armamentum.herokuapp.com/notes is the link for the hosted nodejs server
 
-  async componentDidMount(){
+  async componentDidMount() {
     //autosize(this.notebody);
-    const { getAccessTokenSilently,getIdTokenClaims } = this.props.auth0;
+    const { getAccessTokenSilently, getIdTokenClaims } = this.props.auth0;
 
-    await getIdTokenClaims().then(res => {
-      this.setState({rawuserjwt: res.__raw});//this is the raw JWT containing all the user details
+    await getIdTokenClaims().then((res) => {
+      this.setState({ rawuserjwt: res.__raw }); //this is the raw JWT containing all the user details
     });
 
     getAccessTokenSilently({
       audience: process.env.REACT_APP_AUTH0_AUDIENCE,
-    }).then((token) => 
-      fetch("https://armamentum.herokuapp.com/notes" ,{ headers: {
-        userjwt:this.state.rawuserjwt,
-        Authorization: `Bearer ${token}`,
-        email: this.props.user.email
-      }})
+    }).then((token) =>
+      fetch("https://armamentum.herokuapp.com/notes", {
+        headers: {
+          userjwt: this.state.rawuserjwt,
+          Authorization: `Bearer ${token}`,
+          email: this.props.user.email,
+        },
+      })
         .then((res) => res.json())
         .then((res) => {
           //console.log(token);
@@ -61,11 +64,14 @@ class Notes extends PureComponent {
   };
 
   createHandler = () => {
+
     const data = {
       title: this.state.newnotetitle,
       body: this.state.newnotebody,
-      email: this.props.user.email
+      email: this.props.user.email,
     };
+
+    this.setState({createStatus:"Creating note..."});
 
     const { getAccessTokenSilently } = this.props.auth0;
 
@@ -76,7 +82,7 @@ class Notes extends PureComponent {
         method: "POST",
         headers: {
           "Content-type": "application/json",
-          userjwt:this.state.rawuserjwt,
+          userjwt: this.state.rawuserjwt,
           email: this.props.user.email,
           Authorization: `Bearer ${token}`,
         },
@@ -89,11 +95,13 @@ class Notes extends PureComponent {
           getAccessTokenSilently({
             audience: process.env.REACT_APP_AUTH0_AUDIENCE,
           }).then((token) =>
-          fetch("https://armamentum.herokuapp.com/notes",{ headers: {
-            Authorization: `Bearer ${token}`,
-            userjwt:this.state.rawuserjwt,
-            email: this.props.user.email
-          }})
+            fetch("https://armamentum.herokuapp.com/notes", {
+              headers: {
+                Authorization: `Bearer ${token}`,
+                userjwt: this.state.rawuserjwt,
+                email: this.props.user.email,
+              },
+            })
               .then((res) => res.json())
               .then((res) => {
                 let updateStatus = [];
@@ -110,6 +118,7 @@ class Notes extends PureComponent {
                   newnotebody: "",
                   showcreatenewnotebox: false,
                   updateStatus: updateStatus,
+                  createStatus: ""
                 });
               })
           );
@@ -135,7 +144,7 @@ class Notes extends PureComponent {
     const newbody = {
       title: this.state.notes[index][2],
       body: this.state.notes[index][1],
-      email: this.props.user.email
+      email: this.props.user.email,
     };
 
     getAccessTokenSilently({
@@ -145,7 +154,7 @@ class Notes extends PureComponent {
         method: "PUT",
         headers: {
           "Content-type": "application/json",
-          userjwt:this.state.rawuserjwt,
+          userjwt: this.state.rawuserjwt,
           email: this.props.user.email,
           Authorization: `Bearer ${token}`,
         },
@@ -159,15 +168,21 @@ class Notes extends PureComponent {
     });
   };
 
-  deleteHandler = (id) => {
+  deleteHandler = (id, index) => {
     const { getAccessTokenSilently } = this.props.auth0;
+
+    let updateStatus = this.state.updateStatus;
+    updateStatus[index] = "Deleting note...";
+
+    this.setState({ isUpdating: true, updateStatus: updateStatus });
+
     getAccessTokenSilently({
       audience: process.env.REACT_APP_AUTH0_AUDIENCE,
     }).then((token) => {
       fetch("https://armamentum.herokuapp.com/notes/deletenote/" + id, {
         method: "DELETE",
         headers: {
-          userjwt:this.state.rawuserjwt,
+          userjwt: this.state.rawuserjwt,
           email: this.props.user.email,
           Authorization: `Bearer ${token}`,
         },
@@ -177,17 +192,29 @@ class Notes extends PureComponent {
         getAccessTokenSilently({
           audience: process.env.REACT_APP_AUTH0_AUDIENCE,
         }).then((token) =>
-        fetch("https://armamentum.herokuapp.com/notes",{ headers: {
-          userjwt:this.state.rawuserjwt,
-          Authorization: `Bearer ${token}`,
-          email: this.props.user.email
-        }})
+          fetch("https://armamentum.herokuapp.com/notes", {
+            headers: {
+              userjwt: this.state.rawuserjwt,
+              Authorization: `Bearer ${token}`,
+              email: this.props.user.email,
+            },
+          })
             .then((res) => res.json())
             .then((res) => {
+
+              let updateStatus = [];
+
+              //updateStatus for each note fetched from API
+              res.forEach((val, index) => {
+                updateStatus[index] = "";
+              });
+
               this.setState({
                 notes: res,
                 isLoading: false,
                 showcreatenewnotebox: false,
+                isUpdating: false,
+                updateStatus: updateStatus
               });
             })
         );
@@ -202,7 +229,7 @@ class Notes extends PureComponent {
     //for now I have hardcoded the name (which is my email id in this case). Must change it later!
     return this.state.isLoading === true ? (
       <div id="loading">Loading your 🗒️notes...</div>
-    ) : 
+    ) : (
       <div id="notes">
         <div id="create-new-note" onClick={() => this.openbox()}>
           Create a new note
@@ -228,7 +255,8 @@ class Notes extends PureComponent {
               ></textarea>
             </div>
             <div className="buttons">
-              <div id="create-note-button" onClick={() => this.createHandler()}>
+              <div className="update-status">{this.state.createStatus}</div>
+              <div id="create-note-button" onClick={this.state.createStatus.length > 0 ? null : () => this.createHandler()}>
                 Create
               </div>
             </div>
@@ -259,7 +287,7 @@ class Notes extends PureComponent {
                 </div>
                 <div
                   className="delete-button"
-                  onClick={() => this.deleteHandler(note[4]["@ref"].id)}
+                  onClick={() => this.deleteHandler(note[4]["@ref"].id, index)}
                 >
                   Delete
                 </div>
@@ -274,6 +302,7 @@ class Notes extends PureComponent {
           );
         })}
       </div>
+    );
   }
 }
 
