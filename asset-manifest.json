@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Armamentum/static/css/main.06fd702e.chunk.css",
-    "main.js": "/Armamentum/static/js/main.cd5c8349.chunk.js",
-    "main.js.map": "/Armamentum/static/js/main.cd5c8349.chunk.js.map",
+    "main.js": "/Armamentum/static/js/main.81c842bd.chunk.js",
+    "main.js.map": "/Armamentum/static/js/main.81c842bd.chunk.js.map",
     "runtime-main.js": "/Armamentum/static/js/runtime-main.bcaa7ecd.js",
     "runtime-main.js.map": "/Armamentum/static/js/runtime-main.bcaa7ecd.js.map",
     "static/js/2.852298ef.chunk.js": "/Armamentum/static/js/2.852298ef.chunk.js",
     "static/js/2.852298ef.chunk.js.map": "/Armamentum/static/js/2.852298ef.chunk.js.map",
     "index.html": "/Armamentum/index.html",
-    "precache-manifest.cc6e5449ef0bbaeafc38b7cc7c788661.js": "/Armamentum/precache-manifest.cc6e5449ef0bbaeafc38b7cc7c788661.js",
+    "precache-manifest.8fc121534f0abcdddae598e79c7cfb35.js": "/Armamentum/precache-manifest.8fc121534f0abcdddae598e79c7cfb35.js",
     "service-worker.js": "/Armamentum/service-worker.js",
     "static/css/main.06fd702e.chunk.css.map": "/Armamentum/static/css/main.06fd702e.chunk.css.map",
     "static/js/2.852298ef.chunk.js.LICENSE.txt": "/Armamentum/static/js/2.852298ef.chunk.js.LICENSE.txt",
@@ -22,6 +22,6 @@
     "static/js/runtime-main.bcaa7ecd.js",
     "static/js/2.852298ef.chunk.js",
     "static/css/main.06fd702e.chunk.css",
-    "static/js/main.cd5c8349.chunk.js"
+    "static/js/main.81c842bd.chunk.js"
   ]
 }
