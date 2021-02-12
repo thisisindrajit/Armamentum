@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Armamentum/static/css/main.7562825c.chunk.css",
+    "main.css": "/Armamentum/static/css/main.50bb79bf.chunk.css",
     "main.js": "/Armamentum/static/js/main.ed133eb4.chunk.js",
     "main.js.map": "/Armamentum/static/js/main.ed133eb4.chunk.js.map",
     "runtime-main.js": "/Armamentum/static/js/runtime-main.bcaa7ecd.js",
@@ -8,9 +8,9 @@
     "static/js/2.7c785220.chunk.js": "/Armamentum/static/js/2.7c785220.chunk.js",
     "static/js/2.7c785220.chunk.js.map": "/Armamentum/static/js/2.7c785220.chunk.js.map",
     "index.html": "/Armamentum/index.html",
-    "precache-manifest.04ae5504f1ec34d5ecab850bee4d3e6f.js": "/Armamentum/precache-manifest.04ae5504f1ec34d5ecab850bee4d3e6f.js",
+    "precache-manifest.b6ddbd57a0b347d6fe2bd8f03f088762.js": "/Armamentum/precache-manifest.b6ddbd57a0b347d6fe2bd8f03f088762.js",
     "service-worker.js": "/Armamentum/service-worker.js",
-    "static/css/main.7562825c.chunk.css.map": "/Armamentum/static/css/main.7562825c.chunk.css.map",
+    "static/css/main.50bb79bf.chunk.css.map": "/Armamentum/static/css/main.50bb79bf.chunk.css.map",
     "static/js/2.7c785220.chunk.js.LICENSE.txt": "/Armamentum/static/js/2.7c785220.chunk.js.LICENSE.txt",
     "static/media/guardianlogo.png": "/Armamentum/static/media/guardianlogo.d9a0b4ad.png",
     "static/media/loading.gif": "/Armamentum/static/media/loading.58607b10.gif",
@@ -21,7 +21,7 @@
   "entrypoints": [
     "static/js/runtime-main.bcaa7ecd.js",
     "static/js/2.7c785220.chunk.js",
-    "static/css/main.7562825c.chunk.css",
+    "static/css/main.50bb79bf.chunk.css",
     "static/js/main.ed133eb4.chunk.js"
   ]
 }
