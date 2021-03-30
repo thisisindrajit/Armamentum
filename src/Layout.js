@@ -8,6 +8,7 @@ import Notes from "./Body/Notes/Notes";
 import Quote from "./Body/Quote/Quote";
 import Weather from "./Body/Weather/Weather";
 import Pictures from "./Body/Pictures/Pictures";
+import Footer from "./Body/Footer/Footer";
 //import Dictionary from "./Body/Dictionary/Dictionary";
 import GDictionary from "./Body/GDictionary/GDictionary";
 import Books from "./Body/Books/Books";
@@ -232,6 +233,7 @@ const Layout = (props) => {
           )}
         </div>
       </div>
+      <Footer />
     </div>
   ) : (
     <Loading />

@@ -1,0 +1,17 @@
+#footer{
+    width:fit-content;
+    margin:auto;
+    margin-right:10px;
+    position:relative;
+    padding:15px;
+    background-color:white;
+    text-align:right;
+    color:black;
+}
+
+@media all and (max-width:1000px){
+
+    #footer{
+        margin-right:auto;
+    }
+}

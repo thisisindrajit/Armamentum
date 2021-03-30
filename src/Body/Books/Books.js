@@ -14,7 +14,7 @@ export default class Books extends Component {
     fetch("https://armamentum.herokuapp.com/books/nytbooks")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.results.books);
+        //console.log(data.results.books);
         this.setState({ result: data.results.books, isLoading: false });
       });
   }

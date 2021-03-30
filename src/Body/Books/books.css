@@ -20,6 +20,8 @@
     transition: all 0.25s ease-in-out;
     cursor:pointer;
     justify-content:center;
+    margin:auto;
+    margin-left:0;
 }
 
 #nytbooks .book-box:hover{
@@ -27,10 +29,10 @@
 }
 
 #nytbooks .book-box .bookcover{
-    margin-top:5px;
     height:150px;
-    width:100px;
+    object-fit:cover;
     margin-right:15px;
+    margin-top:5px;
 }
 
 

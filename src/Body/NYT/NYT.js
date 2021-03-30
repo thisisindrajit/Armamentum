@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./nyt.css";
 import nytlogo from "./nytlogo.png";
+import news_logo from "./news_icon.jpg";
 export default class NYT extends Component {
   constructor(props) {
     super(props);
@@ -48,7 +49,11 @@ export default class NYT extends Component {
                 >
                   <img
                     className="nyt-img-holder"
-                    src={newsitem.multimedia[1].url}
+                    src={
+                      newsitem.multimedia
+                        ? newsitem.multimedia[1].url
+                        : news_logo
+                    }
                     alt="thumbnail"
                   ></img>
                   <div className="other-data">
