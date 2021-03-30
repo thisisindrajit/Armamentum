@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Armamentum/static/css/main.50bb79bf.chunk.css",
-    "main.js": "/Armamentum/static/js/main.4552c5d9.chunk.js",
-    "main.js.map": "/Armamentum/static/js/main.4552c5d9.chunk.js.map",
+    "main.js": "/Armamentum/static/js/main.e63912fb.chunk.js",
+    "main.js.map": "/Armamentum/static/js/main.e63912fb.chunk.js.map",
     "runtime-main.js": "/Armamentum/static/js/runtime-main.bcaa7ecd.js",
     "runtime-main.js.map": "/Armamentum/static/js/runtime-main.bcaa7ecd.js.map",
     "static/js/2.00b28d4b.chunk.js": "/Armamentum/static/js/2.00b28d4b.chunk.js",
     "static/js/2.00b28d4b.chunk.js.map": "/Armamentum/static/js/2.00b28d4b.chunk.js.map",
     "index.html": "/Armamentum/index.html",
-    "precache-manifest.cacd72772cb709a407423a084a93d829.js": "/Armamentum/precache-manifest.cacd72772cb709a407423a084a93d829.js",
+    "precache-manifest.b1001209a22a5a0beffc55744fc90cc9.js": "/Armamentum/precache-manifest.b1001209a22a5a0beffc55744fc90cc9.js",
     "service-worker.js": "/Armamentum/service-worker.js",
     "static/css/main.50bb79bf.chunk.css.map": "/Armamentum/static/css/main.50bb79bf.chunk.css.map",
     "static/js/2.00b28d4b.chunk.js.LICENSE.txt": "/Armamentum/static/js/2.00b28d4b.chunk.js.LICENSE.txt",
@@ -16,13 +16,12 @@
     "static/media/loading.gif": "/Armamentum/static/media/loading.58607b10.gif",
     "static/media/logo.png": "/Armamentum/static/media/logo.0d338a54.png",
     "static/media/logo_black.png": "/Armamentum/static/media/logo_black.3b2238ac.png",
-    "static/media/news_icon.jpg": "/Armamentum/static/media/news_icon.411ada79.jpg",
     "static/media/nytlogo.png": "/Armamentum/static/media/nytlogo.9348e128.png"
   },
   "entrypoints": [
     "static/js/runtime-main.bcaa7ecd.js",
     "static/js/2.00b28d4b.chunk.js",
     "static/css/main.50bb79bf.chunk.css",
-    "static/js/main.4552c5d9.chunk.js"
+    "static/js/main.e63912fb.chunk.js"
   ]
 }
