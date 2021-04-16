@@ -30,6 +30,7 @@
 
 #nytbooks .book-box .bookcover{
     height:150px;
+    width:100px;
     object-fit:cover;
     margin-right:15px;
     margin-top:5px;

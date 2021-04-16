@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./nyt.css";
 import nytlogo from "./nytlogo.png";
-import news_logo from "./news_icon.jpg";
+import news_logo from "./news_icon.png";
 export default class NYT extends Component {
   constructor(props) {
     super(props);
