@@ -38,4 +38,4 @@ Other utilites used:
   
 <h3>Queries, Contributions and Feature Requests:</h3>
  
-If you have any queries regarding Armamentum, want to contribute to the development of Armamentum or just want a new feature, do post an issue in the <a href="https://github.com/thisisindrajit/Armamentum/issues" target="_blank">Issues</a> section! Looking forward to what this community has to offer😍!
+If you have any queries regarding Armamentum, want to contribute to the development of Armamentum or just want a new feature, do post an issue in the <a href="https://github.com/thisisindrajit/Armamentum/issues">Issues</a> section! Looking forward to what this community has to offer😍!
