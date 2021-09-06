@@ -19,7 +19,7 @@ export default class Weather extends PureComponent {
       navigator.geolocation.getCurrentPosition((position) => {
         // this.setState({url:"https://armamentum.herokuapp.com/weather/" + position.coords.latitude + "&" + position.coords.longitude, enableLocation:true});
         // });
-        this.setState({ url: "http://localhost:5000/weather/" + position.coords.latitude + "&" + position.coords.longitude, enableLocation: true });
+        this.setState({ url: "https://armamentum.herokuapp.com/weather/" + position.coords.latitude + "&" + position.coords.longitude, enableLocation: true });
       });
     }
   }
