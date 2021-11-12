@@ -15,8 +15,9 @@ export default class NYT extends Component {
     fetch("https://armamentum.herokuapp.com/news/nytnews")
       .then((res) => res.json())
       .then((data) => {
-        //console.log(data.results);
-        this.setState({ result: data.results, isLoading: false });
+        var new_result = data.results.filter(r => r.item_type !== "Promo")
+        console.log(new_result);
+        this.setState({ result: new_result, isLoading: false });
       });
   }
 
@@ -51,7 +52,7 @@ export default class NYT extends Component {
                     className="nyt-img-holder"
                     src={
                       newsitem.multimedia
-                        ? newsitem.multimedia[1].url
+                        ? newsitem.multimedia[0].url
                         : news_logo
                     }
                     alt="thumbnail"
